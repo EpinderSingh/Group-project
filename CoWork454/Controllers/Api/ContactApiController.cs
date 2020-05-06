@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoWork454.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace CoWork454.Controllers.Api
 {
@@ -11,36 +14,25 @@ namespace CoWork454.Controllers.Api
     [ApiController]
     public class ContactApiController : ControllerBase
     {
-        // GET: api/ContactApi
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/ContactApi/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/ContactApi
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] ContactForm model)
         {
+            Execute(model).Wait();
         }
 
-        // PUT: api/ContactApi/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        static async Task Execute(ContactForm model)
         {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            //need to move API key out of file ****
+            var apiKey = "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";
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("test@cowork454.com", "CoWork454 Superuser");
+            var subject = model.SubjectLine;
+            var to = new EmailAddress("lauraduggan89@gmail.com", "Laura Duggan");
+            var plainTextContent = model.MessageBody;
+            var htmlContent = model.MessageBody;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
         }
     }
 }
