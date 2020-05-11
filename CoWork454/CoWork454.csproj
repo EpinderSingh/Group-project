@@ -17,7 +17,6 @@
     <Folder Include="wwwroot\css\pages\home\" />
     <Folder Include="wwwroot\css\pages\memberLogin\" />
     <Folder Include="Data\" />
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />

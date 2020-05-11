@@ -1,6 +1,7 @@
 ﻿using System;
 namespace CoWork454.Models
 {
+    /* This is for taking in passing / updating / deleting news posts to and from the DB */
     public class NewsPost
     {
         public int Id { get; set; }
