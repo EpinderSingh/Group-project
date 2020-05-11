@@ -32,15 +32,8 @@ namespace CoWork454
             services.AddDbContext<MvcMailingListContext>(options =>
             {
                 var connectionString = Configuration.GetConnectionString("MvcMailingListContext");
-
-                if (Environment.IsDevelopment())
-                {
-                    options.UseSqlServer(connectionString);
-                }
-                else
-                {
-                    options.UseSqlServer(connectionString);
-                }
+                options.UseSqlServer(connectionString);
+                
             });
         
         }
@@ -71,7 +64,7 @@ namespace CoWork454
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Index}/{action=Index}/{id?}");
             });
         }
     }
