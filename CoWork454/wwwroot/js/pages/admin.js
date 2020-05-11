@@ -1,9 +1,9 @@
-﻿const newsPostData = document.querySelector('.admin .news__admin tbody');
+﻿const newsPostData = document.querySelector('.admin.news__admin tbody');
 const idElem = document.querySelector('#newsPostId');
 const newsTitleElem = document.querySelector('input[name="newsTitle"]');
-const newsTextElem = document.querySelector('input[name="newsText"]');
+const newsTextElem = document.querySelector('textarea[name="newsText"]');
 const newsPhotoElem = document.querySelector('input[name="newsPhoto"]');
-const newsTagElem = document.querySelector('input[name="newsTag"]');
+const newsTagElem = document.querySelector('select[name="newsTag"]');
 const saveBtn = document.querySelector('#newsPostSaveButton');
 const clearBtn = document.querySelector('#newsPostClearButton');
 const onDelete = (evt) => {
@@ -20,7 +20,7 @@ const onSelect = (evt) => {
 }
 const onSave = (evt) => {
     evt.preventDefault();
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value)): addNew(newsTitleElem.value, newsTitleElem.value, newsTagElem.value);
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value)): addNew(newsTitleElem.value, newsTextElem.value, newsTagElem.value);
 }
 const onClear = (evt) => {
     clearForm();
@@ -94,7 +94,8 @@ const addNew = (newsTitle, newsText, newsPhoto, newsTag) => {
         newsDateTime: Date.now(),
         newsTitle: newsTitle,
         newsText: newsText,
-        newsPhoto: newsPhoto,
+        //to do - photo!!!
+        newsPhoto: "photo",
         newsTag: newsTag
     }
     const fetchOptions = {
