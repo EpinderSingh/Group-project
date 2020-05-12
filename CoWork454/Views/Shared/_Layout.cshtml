@@ -1,6 +1,48 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CoWork454</title>
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <link rel="stylesheet" href="~/css/components/header.css" />
+    <link rel="stylesheet" href="~/css/pages/admin/newsadmin.css" />
+</head>
+<body>
+    <header class="header">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">
+                <img src="~/images/cowork454logoSmall.png" alt="logo" />
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="hover-border">Home</a></li>
+                <li><a href="#" class="hover-border">About</a></li>
+                <li><a href="#" class="hover-border">Blog</a></li>
+                <li><a href="#" class="hover-border">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <div >
+        <main role="main" >
+            @RenderBody()
+        </main>
+    </div>
 
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - CoWork454 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    
+   
+    <script src="~/js/components/header.js"></script>
+    @RenderSection("Scripts", required: false)
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +50,6 @@
     <link rel="stylesheet" href="~/css/components/header.css" />
     <link rel="stylesheet" href="~/css/components/footer.css" />
     <link rel="stylesheet" href="~/css/components/mailsub.css" />
-    <link rel="stylesheet" href="~/css/pages/admin/newsadmin.css" />
 </head>
 <body>
     <header class="header">
@@ -101,6 +142,7 @@
             </ul>
             <p>Copyright © CoWork454</p>
         </div>
+    </div>
     </div>
 
     <script type=" text/javascript " src="~/js/pages/mailsub.js "></script>
