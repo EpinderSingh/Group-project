@@ -19,7 +19,6 @@
     <Folder Include="Data\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\components\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
