@@ -1,0 +1,137 @@
+﻿
+
+
+
+.about {
+    display: flex;
+    height: 92vh;
+    background-color: #11153F;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.about-content {
+}
+
+.about p {
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    max-width: 800px;
+    overflow: auto;
+}
+
+/* Take a tour button */
+
+.about .tour-btn {
+    background: #C1212E;
+    background: -webkit-linear-gradient(top, #820812, #c1212f);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-top: 1px solid #d83b48;
+    padding: 20px 80px;
+    border-radius: 40px;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    font-size: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+    max-height: 70px;
+}
+
+.offer-btn {
+    background: #C1212E;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    padding: 50px 40px;
+    text-align: center;
+    font-size: 25px;
+    display: block;
+    max-width: 335px;
+    margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+    .offer-btn {
+        display: block;
+        float: right;
+    }
+}
+
+/* clearfix in a div
+overflow div
+padding */
+
+
+.tour-btn:hover {
+    cursor: pointer;
+    background-color: #8a0813;
+}
+
+.tour-btn:active {
+    background: #8a0813;
+}
+
+/* Services section */
+
+.services {
+    color: white;
+    font-size: 20px;
+    background-color: #11153F;
+    height: 96vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+    line-height: 1.6;
+    border-top: white solid;
+}
+
+@media only screen and (min-width: 600px) {
+    .services {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    }
+}
+
+
+.location-col {
+    background-color: #11153F;
+    height: 100%;
+    text-align: center;
+}
+
+
+
+
+
+.services-col {
+    background-color: #C1212E;
+    height: 100%;
+    text-align: center;
+    border-left: black solid thin;
+}
+
+.extras-col {
+    background-color: #231F20;
+    height: 100%;
+    text-align: center;
+    border-left: black solid thin;
+}
+
+.services ul {
+    list-style: none;
+}
+
+.icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-image {
+    border-radius: 50%;
+    margin-top: 20px;
+    max-width: 90%;
+    object-fit: cover;
+}
