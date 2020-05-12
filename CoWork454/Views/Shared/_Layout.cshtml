@@ -7,7 +7,6 @@
     <title>@ViewData["Title"] - CoWork454</title>
     <link rel="stylesheet" href="~/css/components/header.css" />
     <link rel="stylesheet" href="~/css/components/footer.css" />
-    <link rel="stylesheet" href="~/css/components/mailsub.css" />
     <link rel="stylesheet" href="~/css/pages/admin/newsadmin.css" />
 </head>
 <body>
@@ -38,16 +37,21 @@
 
 
 
+    <script type=" text/javascript " src="~/js/pages/mailsub.js "></script>
+    @RenderSection("Scripts", required: false)
+
+    <!-- Footer -->
+
     <div class="footer">
         <div class="footer_menu">
             <div class="col_1">
                 <div class="title">
-                    <img src="~/images/cowork454_small_transparent.png">
+                    <img src="images/cowork454_small_transparent.png">
                 </div>
             </div>
             <div class="col_2">
                 <div class="title">
-                    Company
+                    COMPANY
                 </div>
                 <ul>
                     <li><a href="#">About</a></li>
@@ -58,7 +62,7 @@
             </div>
             <div class="col_3">
                 <div class="title">
-                    Services
+                    SERVICES
                 </div>
                 <ul>
                     <li><a href="#">Blog</a></li>
@@ -69,42 +73,31 @@
             </div>
             <div class="col_4">
                 <div class="title">
-                    Other
+                    SUBSCRIBE TO OUR MAILING LIST
                 </div>
-                <ul>
-                    <li><a href="#">Virtual Tour</a></li>
-                    <li><a href="#">Pricing Plans</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="#">Admin Dashboard</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mail-subscription">
-            <form class="mailingList">
-                <div class="mail-wrapper">
-                    <div class="mail-form">
-                        <div class="mail-input">
-                            <input type="text" class="input" id="mailFirstName" placeholder="First Name">
-                            <input type="text" class="input" id="mailLastName" placeholder="Last Name">
-                            <input type="text" class="input" id="subEmail" placeholder="Email Address">
-                            <button id="submitBtnMail">Submit</button>
+                <form class="mailingList">
+                    <div class="mail-wrapper">
+                        <div class="mail-form">
+                            <div class="mail-input">
+                                <input type="text" class="input" id="mailFirstName" placeholder="First Name">
+                                <input type="text" class="input" id="mailLastName" placeholder="Last Name">
+                                <input type="text" class="input" id="subEmail" placeholder="Email Address">
+                                <button id="submitBtnMail">Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         <div class="social_media">
             <ul>
-                <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a class="facebook" href="#"><i class="fab fa-facebook-square"></i></a></li>
                 <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
             </ul>
-            <p>Copyright © CoWork454</p>
+            <p class="copyright">Copyright © CoWork454</p>
         </div>
     </div>
-
-    <script type=" text/javascript " src="~/js/pages/mailsub.js "></script>
-    @RenderSection("Scripts", required: false)
 
 </body>
 </html>
