@@ -41,6 +41,9 @@ namespace CoWork454
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // set an application wide lookup item to tue "DataDirectory" to the application root + "App_Data"
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(env.ContentRootPath, "App_Data"));
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

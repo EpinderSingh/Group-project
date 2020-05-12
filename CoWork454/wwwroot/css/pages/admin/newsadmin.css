@@ -1,0 +1,35 @@
+﻿.admin.container {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+table.admin.news__admin {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.admin.news__admin table td,
+.admin.news__admin table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table.admin.news__admin tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.admin.news__admin tr:hover {
+    background-color: #ddd;
+}
+
+table.admin.news__admin th {
+    padding: 5% 0;
+    text-align: left;
+    background-color: #11153F;
+    color: white;
+}
+
+.admin.news__admin form {}

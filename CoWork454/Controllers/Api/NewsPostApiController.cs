@@ -39,6 +39,7 @@ namespace CoWork454.Controllers.Api
         [HttpPost]
         public void Post([FromBody] NewsPost model)
         {
+            model.DateTimePosted = DateTimeOffset.Now;
             _context.NewsPosts.Add(model);
             _context.SaveChanges();
         }
