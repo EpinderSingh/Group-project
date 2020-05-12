@@ -10,17 +10,18 @@ const onDelete = (evt) => {
     evt.preventDefault();
     const deleteBtn = evt.currentTarget;
     const newsPostId = deleteBtn.getAttribute('data-newspost-id');
-    deleteExisting(newsPostId);
+    deleteExisting(parseInt(newsPostId));
 }
 const onSelect = (evt) => {
     evt.preventDefault();
     const selectBtn = evt.currentTarget;
     const newsPostId = selectBtn.getAttribute('data-newspost-id');
-    getDetails(newsPostId);
+    getDetails(parseInt(newsPostId));
 }
 const onSave = (evt) => {
     evt.preventDefault();
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value)): addNew(newsTitleElem.value, newsTextElem.value, newsTagElem.value);
+    /*need to update photo*/
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, "photo", parseInt(newsTagElem.value)): addNew(newsTitleElem.value, newsTextElem.value, "photo", parseInt(newsTagElem.value));
 }
 const onClear = (evt) => {
     clearForm();
@@ -43,7 +44,10 @@ const getAll = () => {
                 const action2Cell = document.createElement('td');
                 newsPostIdCell.innerText = newsPost.id;
                 newsAuthorCell.innerText = newsPost.authorId;
-                newsDateTimeCell.innerText = newsPost.dateTimePosted;
+
+                var datePosted = new Date(Date.parse(newsPost.dateTimePosted));
+
+                newsDateTimeCell.innerText = datePosted.toDateString();
                 newsTitleCell.innerText = newsPost.newsTitle;
                 newsTextCell.innerText = newsPost.newsText;
                 newsPhotoCell.innerText = newsPost.newsPhoto;
@@ -52,11 +56,11 @@ const getAll = () => {
                 const selectBtn = document.createElement('button');
                 deleteBtn.innerText = 'Delete';
                 deleteBtn.setAttribute('data-newspost-id', newsPost.id);
-                // deleteBtn.className;
+                /*deleteBtn.className;*/
                 deleteBtn.addEventListener('click', onDelete);
                 selectBtn.innerText = 'Select';
                 selectBtn.setAttribute('data-newspost-id', newsPost.id);
-                // selectBtn.className;
+                /*selectBtn.className;*/
                 selectBtn.addEventListener('click', onSelect);
                 action1Cell.appendChild(deleteBtn);
                 action2Cell.appendChild(selectBtn);
@@ -83,8 +87,8 @@ const getDetails = (newsPostId) => {
             idElem.value = newsPost.id;
             newsTitleElem.value = newsPost.newsTitle;
             newsTextElem.value = newsPost.newsText;
-            newsPhotoElem.value = newsPost.newsPhoto;
-            newsTagElem.value = newsPost.newsTag;
+            //newsPhotoElem.value = newsPost.newsPhoto;
+            newsTagElem.selected = newsPost.newsTag;
         })
         .catch(err => { Console.log(err) });
 }
@@ -151,7 +155,7 @@ const deleteExisting = (newsPostId) => {
 const clearForm = () => {
     idElem.value = '';
     newsTitleElem.value = '';
-    newsTagElem.value = '';
+    newsTextElem.value = '';
     newsPhotoElem.value = '';
     newsTagElem.value = '';
 }

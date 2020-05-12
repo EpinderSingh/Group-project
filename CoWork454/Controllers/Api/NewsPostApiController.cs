@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CoWork454.Models;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +42,7 @@ namespace CoWork454.Controllers.Api
         public void Post([FromBody] NewsPost model)
         {
             model.DateTimePosted = DateTimeOffset.Now;
+            
             _context.NewsPosts.Add(model);
             _context.SaveChanges();
         }
