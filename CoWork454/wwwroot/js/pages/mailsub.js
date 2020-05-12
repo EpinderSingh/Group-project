@@ -17,7 +17,7 @@ subscriptionForm.addEventListener('submit', (event) => {
             'Content-Type': 'application/json'
         }
     }
-    fetch('https://localhost:5001/api/MailingListApi', sendMessage)
+    fetch('/api/MailingListApi', sendMessage)
         .then(res => res.json())
         .then(() => {
             alert("Thank you for your subscription");
