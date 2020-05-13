@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CoWork454.Models
 {
     /* This is for taking in passing / updating / deleting news posts to and from the DB */
@@ -11,5 +13,10 @@ namespace CoWork454.Models
         public string NewsText { get; set; }
         public string NewsPhoto { get; set; }
         public NewsTag NewsTag { get; set; }
+
+        [NotMapped]
+        public string NewsTagLabel { get
+            { return NewsTag.ToString(); }
+        }
     }
 }
