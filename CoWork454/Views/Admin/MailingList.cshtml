@@ -2,21 +2,22 @@
     ViewData["Title"] = "Mailing List Admin";
 }
 
-    <div class="admin container">
-        <h1>Subscriber List</h1>
-        <table class="admin news__admin">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Email Address</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+<div class="admin container">
+    <h1>Subscriber List</h1>
+    <table class="admin mail__list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email Address</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-       
-    </div>
+
+</div>
+
+<script type=" text/javascript " src="~/js/pages/mailListAdmi.js "></script>
+@RenderSection("Scripts", required: false)
