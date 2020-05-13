@@ -115,9 +115,9 @@ const addNew = (newsTitle, newsText, newsPhoto, newsTag) => {
     const fetchOptions = {
         body: JSON.stringify(body),
         method: 'POST',
-        //headers: {
-        //    'Content-Type': 'application/json'
-        //}
+        headers: {
+            'Accept': '*/*',
+        }
     };
     fetch('/api/NewsPostApi', fetchOptions)
         .then(res => {
