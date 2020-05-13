@@ -43,3 +43,8 @@ table.admin.news__admin th {
     flex-direction: row;
     justify-content: center;
 }
+
+.admin.news__admin.news__post__photo {
+    height: 300px;
+    width: 300px;
+}

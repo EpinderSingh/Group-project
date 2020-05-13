@@ -22,7 +22,6 @@ const onSelect = (evt) => {
 }
 const onSave = (evt) => {
     evt.preventDefault();
-    /*need to update photo*/
     (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
 }
 
@@ -45,9 +44,8 @@ const getAll = () => {
                 const newsAuthorCell = document.createElement('td');
                 const newsDateTimeCell = document.createElement('td');
                 const newsTitleCell = document.createElement('td');
-                /* trying without newsText for display
-                 * const newsTextCell = document.createElement('td');*/
                 const newsPhotoCell = document.createElement('td');
+                const newsPhotoView = document.createElement('img');
                 const newsTagCell = document.createElement('td');
                 const action1Cell = document.createElement('td');
                 const action2Cell = document.createElement('td');
@@ -58,8 +56,12 @@ const getAll = () => {
 
                 newsDateTimeCell.innerText = datePosted.toDateString();
                 newsTitleCell.innerText = newsPost.newsTitle;
-                /*newsTextCell.innerText = newsPost.newsText;*/
-                newsPhotoCell.innerText = newsPost.newsPhoto;
+
+                newsPhotoCell.appendChild(newsPhotoView);
+                newsPhotoView.src = newsPost.newsPhoto;
+                newsPhotoView.width = "200";
+                newsPhotoView.height = "200";
+
                 newsTagCell.innerText = newsPost.newsTagLabel;
                 const deleteBtn = document.createElement('button');
                 const selectBtn = document.createElement('button');
@@ -104,20 +106,18 @@ const getDetails = (newsPostId) => {
 }
 
 const addNew = (newsTitle, newsText, newsPhoto, newsTag) => {
-    const body = {
-        newsDateTime: Date.now(),
-        newsTitle: newsTitle,
-        newsText: newsText,
-        //to do - photo!!!
-        newsPhoto: newsPhoto,
-        newsTag: newsTag
-    }
+    const data = new FormData();
+    data.append('File', newsPhoto);
+    data.append('NewsDateTime', Date.now());
+    data.append('NewsTitle', newsTitle);
+    data.append('NewsText', newsText);
+    data.append('NewsTag', newsTag);
     const fetchOptions = {
-        body: JSON.stringify(body),
+        body: data,
         method: 'POST',
         headers: {
-            'Accept': '*/*',
-        }
+            'Accept': 'application/json',
+        },
     };
     fetch('/api/NewsPostApi', fetchOptions)
         .then(res => {
@@ -127,18 +127,19 @@ const addNew = (newsTitle, newsText, newsPhoto, newsTag) => {
         .catch(err => { console.log(err) });
 }
 const updateExisting = (newsPostId, newsTitle, newsText, newsPhoto, newsTag) => {
-    const body = {
-        id: newsPostId,
-        newsTitle: newsTitle,
-        newsTitle: newsText,
-        newsPhoto: newsPhoto,
-        newsTag: newsTag
-    }
+    const data = new FormData();
+    data.append('Id', newsPostId);
+    data.append('File', newsPhoto);
+    data.append('NewsDateTime', Date.now());
+    data.append('NewsTitle', newsTitle);
+    data.append('NewsText', newsText);
+    data.append('NewsTag', newsTag);
+    
     const fetchOptions = {
-        body: JSON.stringify(body),
+        body: data,
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Accept': 'application/json',
         }
     };
     fetch(`/api/NewsPostApi/${newsPostId}`, fetchOptions)
@@ -166,7 +167,8 @@ const clearForm = () => {
     idElem.value = '';
     newsTitleElem.value = '';
     newsTextElem.value = '';
-    newsPhotoDisplayElem.value = '';
+    newsPhotoDisplayElem.src = '';
+    newsPhotoElem.value = '';
     newsTagElem.value = '';
 }
 saveBtn.addEventListener('click', onSave);
