@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+using CoWork454.Common;
 using CoWork454.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using MvcMailingList.Data;
+
 
 namespace CoWork454.Controllers.Api
 {
@@ -17,10 +18,12 @@ namespace CoWork454.Controllers.Api
     {
 
         private readonly MvcMailingListContext _context;
+        private readonly IConfiguration _configuration;
 
-        public NewsPostApiController(MvcMailingListContext context)
+        public NewsPostApiController(MvcMailingListContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/NewsPostApi
@@ -39,8 +42,20 @@ namespace CoWork454.Controllers.Api
 
         // POST: api/NewsPostApi
         [HttpPost]
-        public void Post([FromBody] NewsPost model)
+        public void Post(IFormFile file, [FromForm] NewsPost model)
         {
+            string filePath = null;
+
+            using (var stream = file.OpenReadStream())
+            {
+                var connectionString = _configuration.GetConnectionString("StorageConnection");
+                filePath = AzureStorage.AddUpdateFile(file.FileName, stream, connectionString, "CoWork454Container");
+            }
+
+            var newsPost = _context.NewsPosts.Find(model.Id);
+            newsPost.NewsPhoto = filePath;
+
+
             model.DateTimePosted = DateTimeOffset.Now;
             
             _context.NewsPosts.Add(model);

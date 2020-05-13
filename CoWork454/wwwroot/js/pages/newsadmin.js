@@ -3,6 +3,7 @@ const idElem = document.querySelector('#newsPostId');
 const newsTitleElem = document.querySelector('input[name="newsTitle"]');
 const newsTextElem = document.querySelector('textarea[name="newsText"]');
 const newsPhotoElem = document.querySelector('input[name="newsPhoto"]');
+const newsPhotoDisplayElem = document.querySelector('.admin.news__admin.news__post__photo');
 const newsTagElem = document.querySelector('select[name="newsTag"]');
 const saveBtn = document.querySelector('#newsPostSaveButton');
 const clearBtn = document.querySelector('#newsPostClearButton');
@@ -22,7 +23,7 @@ const onSelect = (evt) => {
 const onSave = (evt) => {
     evt.preventDefault();
     /*need to update photo*/
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, "photo", parseInt(newsTagElem.value)): addNew(newsTitleElem.value, newsTextElem.value, "photo", parseInt(newsTagElem.value));
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
 }
 
 const onPreview = (evt) => {
@@ -77,7 +78,7 @@ const getAll = () => {
                 row.appendChild(newsAuthorCell);
                 row.appendChild(newsDateTimeCell);
                 row.appendChild(newsTitleCell);
-                row.appendChild(newsTextCell);
+                /*row.appendChild(newsTextCell);*/
                 row.appendChild(newsPhotoCell);
                 row.appendChild(newsTagCell);
                 row.appendChild(action1Cell);
@@ -95,10 +96,11 @@ const getDetails = (newsPostId) => {
             idElem.value = newsPost.id;
             newsTitleElem.value = newsPost.newsTitle;
             newsTextElem.value = newsPost.newsText;
-            //newsPhotoElem.value = newsPost.newsPhoto;
+            /* need to add link to upload pic */
+            newsPhotoDisplayElem.src = newsPost.newsPhoto;
             newsTagElem.selectedIndex = newsPost.newsTag;
         })
-        .catch(err => { Console.log(err) });
+        .catch(err => { console.log(err) });
 }
 
 const addNew = (newsTitle, newsText, newsPhoto, newsTag) => {
@@ -107,22 +109,22 @@ const addNew = (newsTitle, newsText, newsPhoto, newsTag) => {
         newsTitle: newsTitle,
         newsText: newsText,
         //to do - photo!!!
-        newsPhoto: "photo",
+        newsPhoto: newsPhoto,
         newsTag: newsTag
     }
     const fetchOptions = {
         body: JSON.stringify(body),
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        //headers: {
+        //    'Content-Type': 'application/json'
+        //}
     };
     fetch('/api/NewsPostApi', fetchOptions)
         .then(res => {
             clearForm();
             getAll();
         })
-        .catch(err => { Console.log(err) });
+        .catch(err => { console.log(err) });
 }
 const updateExisting = (newsPostId, newsTitle, newsText, newsPhoto, newsTag) => {
     const body = {
@@ -164,7 +166,7 @@ const clearForm = () => {
     idElem.value = '';
     newsTitleElem.value = '';
     newsTextElem.value = '';
-    newsPhotoElem.value = '';
+    newsPhotoDisplayElem.value = '';
     newsTagElem.value = '';
 }
 saveBtn.addEventListener('click', onSave);
