@@ -1,7 +1,7 @@
-﻿const mailListData = document.querySelector('.admin mail__list tbody');
+﻿const mailListData = document.querySelector('.subdata');
 
 const getAll = () => {
-    mailListData.innerHTML = '';
+    mailListData.innerHTML = '';    
     fetch('/api/MailingListApi')
         .then(res => res.json())
         .then(mailingList => {
@@ -11,9 +11,9 @@ const getAll = () => {
                 const mailListFirstNameCell = document.createElement('td');
                 const mailListLastNameCell = document.createElement('td');
                 mailListIdCell.innerText = mailList.id;
-                mailListEmailCell.innerText = mailList.emailId;
-                mailListFirstNameCell.innerText = mailList.firstNameid;
-                mailListLastNameCell.innerText = mailList.lastNameId;
+                mailListEmailCell.innerText = mailList.emailAddress;
+                mailListFirstNameCell.innerText = mailList.firstName;
+                mailListLastNameCell.innerText = mailList.lastName;
 
                 const row = document.createElement('tr');
                 row.appendChild(mailListIdCell);
@@ -24,4 +24,7 @@ const getAll = () => {
             })
         })
         .catch(err => { });
+
 }
+
+getAll();

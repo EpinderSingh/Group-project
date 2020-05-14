@@ -1,0 +1,36 @@
+﻿.admin.container {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+table.admin.mail__list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.admin.mail__list table td,
+.admin.mail__list table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table.admin.mail__list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.admin.mail__list tr:hover {
+    background-color: #ddd;
+}
+
+table.admin.mail__list th {
+    padding: 5% 0;
+    text-align: left;
+    background-color: #11153F;
+    color: white;
+}
+
+.admin.mail__list form {
+}
