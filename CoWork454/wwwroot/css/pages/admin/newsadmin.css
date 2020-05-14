@@ -1,47 +1,81 @@
-﻿form.admin.container {
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+
+.admin__main {
+    width: 100%;
+    font-size: 5rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: #333333;
+    color: white;
+}
+
+.admin__main h1 {
+    font-size: 5rem;
+}
+
+    .admin__main h2 {
+        font-size: 4rem;
+    }
+
+.admin.container {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1400px;
     width: 90%;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+
+}
+
+.news__admin input {
+    background: transparent;
 }
 
 table.admin.news__admin {
     border-collapse: collapse;
     width: 100%;
+    padding: 2%;
+    border: 2px solid white;
+    font-size: 10rem;
+    margin: 5% 0;
 }
 
-.admin.news__admin table td,
-.admin.news__admin table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
+    table.admin.news__admin th {
+        background-color: black;
+        font-weight: 700;
+    }
 
-table.admin.news__admin tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+    table.admin.news__admin td,
+    table.admin.news__admin th {
+        
+        padding: 1%;
+    }
 
 table.admin.news__admin tr:hover {
-    background-color: #ddd;
-}
-
-table.admin.news__admin th {
-    padding: 1%;
-    text-align: left;
-    background-color: #11153F;
-    color: white;
+    background-color: black;
 }
 
 .admin.news__admin form {
     display: flex;
     flex-direction: column;
     padding: 2% 0;
+    border: 2px solid white;
+    font-size: 5rem;
+    padding: 2%
 }
 
 .admin.news__admin.news__btn {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    padding: 1%;
+    justify-content: space-around;
+    
+}
+
+.news__btn button {
+    background: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
 .admin.news__admin.news__post__photo {

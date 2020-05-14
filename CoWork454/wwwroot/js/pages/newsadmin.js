@@ -67,11 +67,11 @@ const getAll = () => {
                 const selectBtn = document.createElement('button');
                 deleteBtn.innerText = 'Delete';
                 deleteBtn.setAttribute('data-newspost-id', newsPost.id);
-                /*deleteBtn.className;*/
+                deleteBtn.className = "news__btn";
                 deleteBtn.addEventListener('click', onDelete);
                 selectBtn.innerText = 'Select';
                 selectBtn.setAttribute('data-newspost-id', newsPost.id);
-                /*selectBtn.className;*/
+                selectBtn.className = "news__btn";
                 selectBtn.addEventListener('click', onSelect);
                 action1Cell.appendChild(deleteBtn);
                 action2Cell.appendChild(selectBtn);
