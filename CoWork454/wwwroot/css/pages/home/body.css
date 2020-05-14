@@ -8,12 +8,12 @@
     /* border: solid 2px blue; */
 }
 
-    .alert a {
-        text-decoration: none;
-        color: white;
-        font-size: 3rem;
-        text-align: center;
-    }
+.alert a {
+    text-decoration: none;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
 /* The close button */
 .closebtn {
     margin: 0.5rem 2rem 0 2rem;
@@ -26,10 +26,10 @@
     transition: 0.3s;
 }
 
-    /* When moving the mouse over the close button */
-    .closebtn:hover {
-        color: black;
-    }
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
 
 /* ------------------ */
 /*      ALERT MODAL    */
@@ -75,12 +75,12 @@
     color: #fff;
 }
 
-    .alert-close:hover,
-    .alert-close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.alert-close:hover,
+.alert-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .alert-modal {
     padding: 0 2rem;
@@ -119,11 +119,11 @@
     transition: all 0.4s;
 }
 
-    .to-top.active {
-        bottom: 32px;
-        pointer-events: auto;
-        opacity: 1;
-    }
+.to-top.active {
+    bottom: 32px;
+    pointer-events: auto;
+    opacity: 1;
+}
 /* ---------------- */
 /*    VIDEO Style   */
 /* ---------------- */
@@ -177,14 +177,14 @@
     margin: 0 auto;
 }
 
-    .about-offer p {
-        font-size: 2rem;
-        position: absolute;
-        color: white;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0;
-    }
+.about-offer p {
+    font-size: 2rem;
+    position: absolute;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
 
 .about-text {
     color: white;
@@ -192,11 +192,12 @@
     text-align: center;
     font-size: 3rem;
     width: 80%;
+    padding: 2rem 0;
 }
 
-    .about-text p {
-        margin: 1rem 0;
-    }
+.about-text p {
+    margin: 1rem 0;
+}
 
 .about-button {
     padding: 1rem 5rem;
@@ -256,12 +257,12 @@
     color: #fff;
 }
 
-    .special-close:hover,
-    .special-close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.special-close:hover,
+.special-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .special-modal {
     padding: 0 2rem;
@@ -293,14 +294,14 @@
     border-top: white solid;
 }
 
-    .services p,
-    .services li {
-        font-size: 2rem;
-    }
+.services p,
+.services li {
+    font-size: 2rem;
+}
 
-    .services h2 {
-        font-size: 4rem;
-    }
+.services h2 {
+    font-size: 4rem;
+}
 
 .icon {
     margin: 3rem 0;
@@ -309,6 +310,7 @@
 @media only screen and (min-width: 768px) {
     .services {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        
     }
 }
 
@@ -316,6 +318,7 @@
     background-color: #11153f;
     height: 100%;
     text-align: center;
+    padding-bottom:3rem;
 }
 
 .services-col {
@@ -323,6 +326,7 @@
     height: 100%;
     text-align: center;
     border-left: black solid thin;
+    padding-bottom: 3rem;
 }
 
 .extras-col {
@@ -330,6 +334,7 @@
     height: 100%;
     text-align: center;
     border-left: black solid thin;
+    padding-bottom: 3rem;
 }
 
 .services ul {
@@ -371,15 +376,15 @@
     padding-bottom: 4rem;
 }
 
-    .map-iframe iframe {
-        margin: 0 auto;
-        width: 80vw;
-        height: 70vh;
-        display: block;
-        float: none;
-        clear: both;
-        border-radius: 2rem;
-    }
+.map-iframe iframe {
+    margin: 0 auto;
+    width: 80vw;
+    height: 70vh;
+    display: block;
+    float: none;
+    clear: both;
+    border-radius: 2rem;
+}
 
 @media screen and (min-width: 768px) {
     .about-container {
@@ -405,6 +410,7 @@
         width: 45%;
         margin: 0 auto;
         text-align: center;
+        
     }
 
     .about-offer {

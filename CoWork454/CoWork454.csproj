@@ -19,6 +19,7 @@
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\components\" />
     <Folder Include="Common\" />
+    <Folder Include="wwwroot\images\gallery\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
@@ -37,5 +38,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="3.0.1" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.4.2" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\cowork454_small_transparent.png" />
   </ItemGroup>
 </Project>

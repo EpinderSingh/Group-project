@@ -66,9 +66,9 @@
     }
 
 .header .hover-border:hover::after {
-        left: 0%;
-        width: 100%;
-    }
+    left: 0%;
+    width: 100%;
+ }
 
 .header .burger {
     display: none;
@@ -76,12 +76,12 @@
 }
 
 .header .burger div {
-        width: 2.5rem;
-        height: 0.3rem;
-        background-color: rgb(209, 203, 203);
-        margin: 0.5rem;
-        transition: all 0.4s ease;
-    }
+    width: 2.5rem;
+    height: 0.3rem;
+    background-color: rgb(209, 203, 203);
+    margin: 0.5rem;
+    transition: all 0.4s ease;
+}
 
 @media screen and (max-width: 768px) {
     body {
@@ -103,9 +103,9 @@
         z-index: 11;
     }
 
-        .header .nav-links li {
-            opacity: 0;
-        }
+    .header .nav-links li {
+        opacity: 0;
+    }
 
     .header .burger {
         display: block;

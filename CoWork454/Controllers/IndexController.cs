@@ -22,6 +22,10 @@ namespace CoWork454.Controllers
         {
             return View();
         }
+        public IActionResult Gallery()
+        {
+            return View();
+        }
 
         public IActionResult News()
         {

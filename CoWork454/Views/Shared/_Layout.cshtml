@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CoWork454</title>
     <script src="https://kit.fontawesome.com/20b732ba36.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap"rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/components/header.css" />
     <link rel="stylesheet" href="~/css/components/footer.css" />
     <link rel="stylesheet" href="~/css/pages/admin/newsadmin.css" />
     <link rel="stylesheet" href="~/css/components/mailsub.css" />
     <link rel="stylesheet" href="~/css/pages/home/body.css" />
+    <link rel="stylesheet" href="~/css/components/lightbox.min.css" />
+    <link rel="stylesheet" href="~/css/components/gallery.css" />
 
 </head>
 
@@ -23,9 +26,9 @@
                 <img src="~/images/cowork454logoSmall.png" alt="logo" />
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="hover-border">Home</a></li>
+                <li><a href="/index" class="hover-border">Home</a></li>
                 <li><a href="#" class="hover-border">About</a></li>
-                <li><a href="#" class="hover-border">Blog</a></li>
+                <li><a href="/news" class="hover-border">Blog</a></li>
                 <li><a href="#" class="hover-border">Contact</a></li>
             </ul>
             <div class="burger">
@@ -48,7 +51,7 @@
         <div class="footer_menu">
             <div class="col_1">
                 <div class="title">
-                    <img src="images/cowork454_small_transparent.png">
+                    <img src="~/images/cowork454_small_transparent.png">
                 </div>
             </div>
             <div class="col_2">
@@ -58,7 +61,7 @@
                 <ul>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="/index/gallery">Gallery</a></li>
                     <li><a href="#">Careers</a></li>
                 </ul>
             </div>
