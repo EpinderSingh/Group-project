@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+using CoWork454.Common;
 using CoWork454.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using MvcMailingList.Data;
+
 
 namespace CoWork454.Controllers.Api
 {
@@ -17,10 +18,12 @@ namespace CoWork454.Controllers.Api
     {
 
         private readonly MvcMailingListContext _context;
+        private readonly IConfiguration _configuration;
 
-        public NewsPostApiController(MvcMailingListContext context)
+        public NewsPostApiController(MvcMailingListContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/NewsPostApi
@@ -37,10 +40,34 @@ namespace CoWork454.Controllers.Api
             return _context.NewsPosts.SingleOrDefault(n => n.Id == id);
         }
 
+        // GET: api/NewsPostApi/tags/2
+        // returns filtered list of news posts by news tag
+        [HttpGet("tags/{tag}")]
+        public List<NewsPost> Get(NewsTag tag)
+        {
+            return _context.NewsPosts.Where(n => n.NewsTag == tag).ToList();
+        }
+
+
         // POST: api/NewsPostApi
         [HttpPost]
-        public void Post([FromBody] NewsPost model)
+        public void Post(IFormFile file, [FromForm] NewsPost model)
         {
+            string filePath = null;
+            if (file != null)
+            {
+                using (var stream = file.OpenReadStream())
+                {
+                    var connectionString = _configuration.GetConnectionString("StorageConnection");
+                    filePath = AzureStorage.AddUpdateFile(file.FileName, stream, connectionString, "CoWork454Container");
+                }
+
+            }
+            else
+            {
+                filePath = "/images/news_default.jpg";
+            }
+            model.NewsPhoto = filePath;
             model.DateTimePosted = DateTimeOffset.Now;
             
             _context.NewsPosts.Add(model);
@@ -49,8 +76,25 @@ namespace CoWork454.Controllers.Api
 
         // PUT: api/NewsPostApi/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] NewsPost model)
+        public void Put(int id, IFormFile file, [FromForm] NewsPost model)
         {
+            string filePath = null;
+
+            if (file != null)
+            {
+                using (var stream = file.OpenReadStream())
+                {
+                    var connectionString = _configuration.GetConnectionString("StorageConnection");
+                    filePath = AzureStorage.AddUpdateFile(file.FileName, stream, connectionString, "CoWork454Container");
+                }
+
+            }
+            else
+            {
+                filePath = "/images/news_default.jpg";
+            }
+            model.NewsPhoto = filePath;
+            model.DateTimePosted = DateTimeOffset.Now;
             _context.NewsPosts.Update(model);
             _context.SaveChanges();
         }

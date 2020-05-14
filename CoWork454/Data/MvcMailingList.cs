@@ -12,5 +12,7 @@ namespace MvcMailingList.Data
 
         public DbSet<MailingList> MailingList { get; set; }
         public DbSet<NewsPost> NewsPosts { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

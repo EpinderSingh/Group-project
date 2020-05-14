@@ -1,4 +1,4 @@
-﻿.admin.container {
+﻿form.admin.container {
     margin: 0 auto;
     max-width: 900px;
     width: 90%;
@@ -26,10 +26,25 @@ table.admin.news__admin tr:hover {
 }
 
 table.admin.news__admin th {
-    padding: 5% 0;
+    padding: 1%;
     text-align: left;
     background-color: #11153F;
     color: white;
 }
 
-.admin.news__admin form {}
+.admin.news__admin form {
+    display: flex;
+    flex-direction: column;
+    padding: 2% 0;
+}
+
+.admin.news__admin.news__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.admin.news__admin.news__post__photo {
+    height: 300px;
+    width: 300px;
+}

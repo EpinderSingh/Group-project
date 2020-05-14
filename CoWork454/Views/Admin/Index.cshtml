@@ -24,13 +24,15 @@
 
     <h2>Add new blog post</h2>
     <div class="admin news__admin">
-        <form enctype="multipart/form-data">
+        <form>
 
             <label class="description" for="newsTitle">News Post Title</label>
             <input id="newsTitle" name="newsTitle" type="text" maxlength="255" value="" required />
 
             <label class="description" for="newsText">News Post Body Text</label>
             <textarea id="newsText" name="newsText" required></textarea>
+
+            <img class="admin news__admin news__post__photo" alt="news image" />
 
             <label class="description" for="newsPhoto">Upload Photo</label>
             <input id="newsPhoto" name="newsPhoto" class="element file" type="file" />
@@ -50,9 +52,11 @@
             </select>
 
             <input type="hidden" id="newsPostId" name="id" />
-            <button type="submit" id="newsPostSaveButton">Save</button>
-            <button id="newsPostClearButton">Clear</button>
-            <button id="newsPostPreviewButton">Preview</button>
+            <div class="admin news__admin news__btn">
+                <button type="submit" id="newsPostSaveButton">Save</button>
+                <button id="newsPostClearButton">Clear</button>
+                <button id="newsPostPreviewButton">Preview</button>
+            </div>
 
         </form>
     </div>

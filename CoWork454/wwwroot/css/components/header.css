@@ -33,6 +33,9 @@
         list-style: none;
     }
 
+.header .nav-links li a {
+    font-size: 2rem;
+}
 .header .hover-border {
     color: rgb(209, 203, 203);
     text-decoration: none;

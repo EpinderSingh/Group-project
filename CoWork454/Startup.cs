@@ -35,7 +35,10 @@ namespace CoWork454
                 options.UseSqlServer(connectionString);
                 
             });
-        
+
+            services.AddSingleton<IConfiguration>(Configuration);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
