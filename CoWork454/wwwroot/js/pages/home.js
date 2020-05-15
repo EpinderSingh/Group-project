@@ -20,7 +20,7 @@ function outsideClick(e) {
 }
 
 //===============================================
-//                  Special offers  Modal
+//             Special offers  Modal
 // ==============================================
 const specialBtn = document.querySelector('.special-btn');
 const specialBg = document.querySelector('.special-bg');
@@ -40,7 +40,7 @@ window.addEventListener('click', function (e) {
 });
 
 // =======================================
-// To top button
+//           To top button
 // =======================================
 
 const toTop = document.querySelector('.to-top');

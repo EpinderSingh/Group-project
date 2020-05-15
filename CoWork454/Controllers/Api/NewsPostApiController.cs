@@ -30,7 +30,7 @@ namespace CoWork454.Controllers.Api
         [HttpGet]
         public List<NewsPost> Get()
         {
-            return _context.NewsPosts.ToList();
+            return _context.NewsPosts.OrderByDescending(p => p.DateTimePosted).ToList();
         }
 
         // GET: api/NewsPostApi/5
