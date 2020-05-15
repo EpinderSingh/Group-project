@@ -142,9 +142,9 @@ const updateExisting = (newsPostId, newsTitle, newsText, newsPhoto, newsTag) => 
             'Accept': 'application/json',
         }
     };
+
     fetch(`/api/NewsPostApi/${newsPostId}`, fetchOptions)
-        .then(res => res.json())
-        .then(() => {
+        .then(res => {
             clearForm();
             getAll();
         })
