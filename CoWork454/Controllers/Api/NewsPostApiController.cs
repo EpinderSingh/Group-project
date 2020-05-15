@@ -33,6 +33,20 @@ namespace CoWork454.Controllers.Api
             return _context.NewsPosts.OrderByDescending(p => p.DateTimePosted).ToList();
         }
 
+        // GET: api/NewsPostApi/top/5
+        [HttpGet("{pos}/{num}")]
+        public List<NewsPost> Get(string pos, int num)
+        {
+            if (pos == "top")
+            {
+                return _context.NewsPosts.OrderByDescending(p => p.DateTimePosted).Take(num).ToList();
+            }
+
+            return null;
+            
+        }
+
+
         // GET: api/NewsPostApi/5
         [HttpGet("{id}")]
         public NewsPost Get(int id)
