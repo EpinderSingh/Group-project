@@ -13,7 +13,7 @@ fetch('/api/NewsPostApi')
       newsText.innerText = blog.newsText;
       newsPhoto.src = blog.newsPhoto;
 
-        const newsContainer = document.querySelector('.news-container');
+        const newsContainer = document.querySelector('.news-post');
 
       newsContainer.appendChild(newsTitle);
       newsContainer.appendChild(newsText);
