@@ -152,6 +152,22 @@
 }
 
 /* ---------------------------- */
+/*        News Section         */
+/* ---------------------------- */
+
+.news-container {
+    background-color: #231F20;
+    padding: 40px 0;
+}
+
+.news-logo {
+    width: 60%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ---------------------------- */
 /*        About Section         */
 /* ---------------------------- */
 .about-container {
@@ -186,7 +202,8 @@
     margin: 0;
 }
 
-.about-text {
+.about-text,
+.news-text {
     color: white;
     margin: 40px auto;
     text-align: center;
@@ -195,9 +212,10 @@
     padding: 2rem 0;
 }
 
-.about-text p {
-    margin: 1rem 0;
-}
+    .about-text p,
+    .news-text p {
+        margin: 1rem 0;
+    }
 
 .about-button {
     padding: 1rem 5rem;

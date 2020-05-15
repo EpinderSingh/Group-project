@@ -151,26 +151,52 @@
     </div>
 </section>
 
-<!-------------Map Section ----------------------->
+<!----------------------- News Section ------------------------>
 
-<section class="map">
-    <h2 class="map-h2">
-        <img src="~/images/location-icon.svg" alt="location icon" height="80" />
-        Location
-    </h2>
+<section class="news-container">
+    <h2 class="map-h2">Latest News</h2>
+        <div class="news__post">
+            <div class="news__post__details">
+                <img src="https://picsum.photos/100/100" alt="news pic" />
+                <div class="news__author__name">CoWork454 Admin</div>
+                <div class="news__date__posted">7 May 2020</div>
+                <div class="news__share__btn">
+                    Share
+                </div>
+            </div>
+            <div class="news__textbox">
+                <div class="news__tag">
+                    <i class="fab fa-microblog"></i>
+                    <h4>Events</h4>
+                </div>
+                <div class="news__title">
+                    <h2>Upcoming Workshop</h2>
+                    <p>blahblahblahbalhbalhblah</p>
+                </div>
+            </div>
+        </div>
+        <a href="/index/news" class="about-button">More News</a>
+</section>
+    <!-------------Map Section ----------------------->
 
-    <div class="map-iframe">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3387.013865838582!2d115.80824651576245!3d-31.
+    <section class="map">
+        <h2 class="map-h2">
+            <img src="~/images/location-icon.svg" alt="location icon" height="80" />
+            Location
+        </h2>
+
+        <div class="map-iframe">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3387.013865838582!2d115.80824651576245!3d-31.
         906220627308933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32af9ecc0486cb%3A0xf9ab7f96b7c336f2!
         2s454%20Scarborough%20Beach%20Rd%2C%20Osborne%20Park%20WA%206017!5e0!3m2!1sen!2sau!4v1589101710705!5m2!1sen!2sau"></iframe>
-    </div>
-</section>
+        </div>
+    </section>
 
-<!-- Back to to button -->
-<a href="#" class="to-top">
-    <i class="fas fa-chevron-up"></i>
-</a>
+    <!-- Back to to button -->
+    <a href="#" class="to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
-@section scripts{
-    <script type=" text/javascript " src="~/js/pages/home.js " asp-append-version="true"></script>
- }
+    @section scripts{
+        <script type=" text/javascript " src="~/js/pages/home.js " asp-append-version="true"></script>
+    }
