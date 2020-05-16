@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CoWork454.Models;
+using MvcMailingList.Data;
 
 namespace CoWork454.Controllers
 {
-    public class IndexController : Controller
+    public class IndexController : BaseController
     {
-        private readonly ILogger<IndexController> _logger;
+        private readonly MvcMailingListContext _context;
 
-        public IndexController(ILogger<IndexController> logger)
+        public IndexController(MvcMailingListContext mvcMailingList)
+            : base(mvcMailingList)
+
         {
-            _logger = logger;
+            _context = mvcMailingList;
         }
 
         public IActionResult Index()
         {
+            ViewData["news__featured"] = _context.NewsPosts.OrderByDescending(p => p.DateTimePosted).Take(4).ToList();
             return View();
         }
         public IActionResult Gallery()

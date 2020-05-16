@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "CoWork454";
+    var newsPosts = (List<NewsPost>)ViewData["news__featured"];
 }
 
 <!-- COVID-19 Alert -->
@@ -120,13 +121,12 @@
         <h2>Services</h2>
         <ul>
             <li>Reception area</li>
-            <li>Staff breakout/lunch area</li>
+            <li>Breakout/lunch area</li>
             <li>Boardroom</li>
             <li>Training Room</li>
             <li>145 Work Stations</li>
             <li>21 Offices</li>
             <li>7 Meeting Rooms</li>
-            <li>3 sets of male and female bathrooms</li>
             <li>IT Room</li>
         </ul>
     </div>
@@ -140,12 +140,12 @@
              src="~/images/coin-icon-red.svg"
              alt="extra's icon"
              height="80" />
-        <h2>Extra's</h2>
+        <h2>Extras</h2>
         <ul>
             <li>Free Car Parking</li>
             <li>Complimentary hand sanitisers</li>
             <li>Daily Cleaning (WA Health Standards)</li>
-            <li>Multiple utility area's</li>
+            <li>Multiple utility areas</li>
             <li>Shower/Lockers available</li>
         </ul>
     </div>
@@ -154,28 +154,55 @@
 <!----------------------- News Section ------------------------>
 
 <section class="news-container">
-    <h2 class="map-h2">Latest News</h2>
-        <div class="news__post">
-            <div class="news__post__details">
-                <img src="https://picsum.photos/100/100" alt="news pic" />
-                <div class="news__author__name">CoWork454 Admin</div>
-                <div class="news__date__posted">7 May 2020</div>
-                <div class="news__share__btn">
-                    Share
-                </div>
+    <h2 class="map-h2"><i class="fab fa-microblog map-h2"></i> CoWork454 News</h2>
+    <div class="news__left">
+        
+            <img class="news__featured__image" src="@newsPosts[0].NewsPhoto" />
+            <div class="news__featured">
+                <h3>@newsPosts[0].NewsTitle</h3>
+                @{
+                    var output = "";
+                    if (@newsPosts[0].NewsText.Length > 900)
+                    {
+                        var str = @newsPosts[0].NewsText.Substring(0, 900);
+                        output = str.Substring(0, str.LastIndexOf(' '));
+                    }
+                    else
+                    {
+                        output = @newsPosts[0].NewsText;
+                    }
+                }
+                <p>@output</p>
+                <a href="/news/@newsPosts[0].Id"><p>Read More</p></a>
             </div>
-            <div class="news__textbox">
-                <div class="news__tag">
-                    <i class="fab fa-microblog"></i>
-                    <h4>Events</h4>
-                </div>
-                <div class="news__title">
-                    <h2>Upcoming Workshop</h2>
-                    <p>blahblahblahbalhbalhblah</p>
-                </div>
-            </div>
-        </div>
-        <a href="/index/news" class="about-button">More News</a>
+
+    </div>
+    <div class="news__right">
+        
+        <ul class="image-gallery news_gallery">
+            @{ for (var i = 1; i < newsPosts.Count; i++)
+                {
+                    
+                        <li>
+                                        <a href="/news/@newsPosts[i].Id">
+                                            <div class="news__post">
+                                                <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
+                                                <div class="news__content">
+                                                    <h3>@newsPosts[i].NewsTitle</h3>
+                                                    <p>Cowork454</p>
+                                                    <!-- to add author! newsPosts[i].AuthorId -->
+                                                    <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                        </li>
+                        
+                        }
+                        }
+                </ul>
+    </div>
+
+    <a href="/index/news" class="about-button">More News</a>
 </section>
     <!-------------Map Section ----------------------->
 

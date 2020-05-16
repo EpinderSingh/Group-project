@@ -155,16 +155,146 @@
 /*        News Section         */
 /* ---------------------------- */
 
+
 .news-container {
     background-color: #231F20;
-    padding: 40px 0;
+    color: white;
+    text-align: center;
+    padding: 4% 3%;
+    border-top: white solid;
 }
 
-.news-logo {
-    width: 60%;
-    max-width: 300px;
-    display: block;
-    margin: 0 auto;
+.news-container a {
+    color: white;
+    text-decoration: none;
+}
+
+    .news-container ul {
+        list-style-type: none;
+    }
+
+    .news-container h2 {
+        margin-bottom: 30px;
+    }
+
+.news__left,
+.news__post {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    max-width: 55%;
+    float: left;
+}
+
+.news__left {
+    margin-right: 40px;
+}
+
+.news__right {
+    padding-bottom: 5%;
+}
+
+.news__post {
+    grid-template-columns: 120px 1fr;
+}
+
+.news__post {
+    max-width: 100%;
+    float: inherit;
+}
+
+.news__left h3 {
+    text-align: left;
+    font-size: 2rem;
+}
+
+.news__left p {
+    font-size: 1.2rem;
+}
+
+.news__featured__image,
+.news__image {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+a.news__featured__image:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+}
+
+.news__image {
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 700px) {
+    .news__left {
+        grid-template-columns: 1fr;
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .news__featured__image {
+        margin: auto;
+        margin-bottom: 30px;
+    }
+}
+
+
+.news__content h3 {
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.news__content p {
+    font-size: 1.2rem;
+}
+
+.news__gallery h3 {
+    font-size: 17px;
+    line-height: 20px;
+}
+
+.news__gallery {
+    margin-bottom: 30px !important;
+}
+
+.news__right .lSAction > a {
+    display: none;
+}
+
+.news__right .lSSlideOuter .lSPager.lSGallery img {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #fws_5bf52d425b033 .vc_col-sm-3 {
+        width: 23.404255317%;
+        margin-right: 2%;
+    }
+
+    #fws_5bf52d425b033 .vc_col-sm-6 {
+        width: 48.93617020799999%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .news__left,
+    .news__post {
+        width: 100%;
+        max-width: inherit;
+    }
 }
 
 /* ---------------------------- */
