@@ -42,5 +42,17 @@ namespace CoWork454.Controllers
 
             return cookieContent;
         }
+
+        protected IActionResult AdminLogin()
+        {
+            var userId = GetEncryptedGenericCookie("USER_ID");
+            if (userId != null)
+            {
+                return RedirectToAction("Index", "User");
+            }
+
+            return View();
+        }
     }
+        
 }
