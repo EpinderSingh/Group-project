@@ -14,12 +14,12 @@ namespace MvcMailingList.Data
         public DbSet<NewsPost> NewsPosts { get; set; }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<NewsPost>()
-            .HasOne<User>()
-            .WithMany()
-            .HasForeignKey(p => p.AuthorId);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<NewsPost>()
+        //    .HasOne<User>()
+        //    .WithMany()
+        //    .HasForeignKey(p => p.AuthorId);
+        //}
     }
 }
