@@ -48,10 +48,10 @@ namespace CoWork454.Controllers
             var userId = GetEncryptedGenericCookie("USER_ID");
             if (userId != null)
             {
-                return RedirectToAction("Index", "User");
+                return View("../Admin/Index");
             }
 
-            return View();
+            return RedirectToAction("Index", "User");
         }
     }
         
