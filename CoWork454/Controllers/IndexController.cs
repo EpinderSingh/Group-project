@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CoWork454.Models;
 using MvcMailingList.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoWork454.Controllers
 {
@@ -23,7 +24,11 @@ namespace CoWork454.Controllers
 
         public IActionResult Index()
         {
-            ViewData["news__featured"] = _context.NewsPosts.OrderByDescending(p => p.DateTimePosted).Take(4).ToList();
+            ViewData["news__featured"] = _context.NewsPosts
+                                            .OrderByDescending(p => p.DateTimePosted)
+                                            .Include(p => p.Author)
+                                            .Take(4)
+                                            .ToList();
             return View();
         }
         public IActionResult Gallery()

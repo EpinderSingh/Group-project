@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcMailingList.Data;
 
 namespace CoWork454.Migrations
 {
     [DbContext(typeof(MvcMailingListContext))]
-    partial class MvcMailingListContextModelSnapshot : ModelSnapshot
+    [Migration("20200518043858_addedAuthorLink")]
+    partial class addedAuthorLink
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,6 +52,9 @@ namespace CoWork454.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AuthorId1")
+                        .HasColumnType("int");
+
                     b.Property<DateTimeOffset>("DateTimePosted")
                         .HasColumnType("datetimeoffset");
 
@@ -68,6 +73,8 @@ namespace CoWork454.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
+
+                    b.HasIndex("AuthorId1");
 
                     b.ToTable("NewsPosts");
                 });
@@ -101,11 +108,15 @@ namespace CoWork454.Migrations
 
             modelBuilder.Entity("CoWork454.Models.NewsPost", b =>
                 {
-                    b.HasOne("CoWork454.Models.User", "Author")
+                    b.HasOne("CoWork454.Models.User", null)
                         .WithMany()
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("CoWork454.Models.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId1");
                 });
 #pragma warning restore 612, 618
         }

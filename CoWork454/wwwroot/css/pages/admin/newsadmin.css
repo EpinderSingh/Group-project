@@ -25,6 +25,7 @@
 
 .news__admin input {
     background: transparent;
+    color: white;
 }
 
 table.admin.news__admin {
@@ -32,7 +33,7 @@ table.admin.news__admin {
     width: 100%;
     padding: 2%;
     border: 2px solid white;
-    font-size: 10rem;
+    font-size: 7rem;
     margin: 5% 0;
 }
 
@@ -56,7 +57,7 @@ table.admin.news__admin tr:hover {
     flex-direction: column;
     padding: 2% 0;
     border: 2px solid white;
-    font-size: 5rem;
+    font-size: 2rem;
     padding: 2%
 }
 
