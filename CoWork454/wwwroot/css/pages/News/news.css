@@ -3,7 +3,9 @@
 .news-post {
     display: flex;
     flex-flow: row wrap;
-    justify-content:space-around;
+    justify-content: space-evenly;
+
+   
 }
 .post:nth-child(3n+1) {
     background: #C1212E;
@@ -17,20 +19,21 @@
 .post {
     cursor: pointer;
     width: 30vw;
-    height: 80vh;
-    margin: 1.5rem;
+    height: 70vh;
+    margin: 2rem 0;
     border-radius: 3rem;
     transition: all .2s ease-in-out;
 }
 .post:hover {
 transform: scale(1.02);
 }
-.post > img{
-    width:60%;
-    padding-top: 2rem;
-    display:block;
-    margin:0 auto;
-}
+    .post > img {
+        display: block;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 3rem auto;
+    }
 .post > h3{
     color:white;
     font-size:3rem;
@@ -40,11 +43,15 @@ transform: scale(1.02);
 .post > p {
     color: white;
     font-size: 1.3rem;
-    text-align: center;
-    margin: 1rem;
+    text-align: justify;
+    margin: 1rem 3rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    word-spacing: 0.3rem;
+}
+.post > .news-date{
+    text-align:center;
 }
