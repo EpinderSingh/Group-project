@@ -31,13 +31,10 @@ namespace CoWork454.Controllers.Api
         [HttpGet]
         public List<NewsPost> Get()
         {
-            var results = _context.NewsPosts
+            return _context.NewsPosts
                 .OrderByDescending(p => p.DateTimePosted)
                 .Include(p => p.Author)
                 .ToList();
-
-            return results;
-
         }
 
         // GET: api/NewsPostApi/top/5
@@ -46,7 +43,11 @@ namespace CoWork454.Controllers.Api
         {
             if (pos == "top")
             {
-                return _context.NewsPosts.OrderByDescending(p => p.DateTimePosted).Take(num).ToList();
+                return _context.NewsPosts
+                    .OrderByDescending(p => p.DateTimePosted)
+                    .Include(p => p.Author)
+                    .Take(num)
+                    .ToList();
             }
             return null;
         }
@@ -64,7 +65,10 @@ namespace CoWork454.Controllers.Api
         [HttpGet("tags/{tag}")]
         public List<NewsPost> Get(NewsTag tag)
         {
-            return _context.NewsPosts.Where(n => n.NewsTag == tag).ToList();
+            return _context.NewsPosts
+                .Include(p => p.Author)
+                .Where(n => n.NewsTag == tag)
+                .ToList();
         }
 
 
