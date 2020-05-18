@@ -87,7 +87,7 @@
   padding: 0 2rem;
   background-color: white;
   width: 50%;
-  height: 30%;
+  height: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -97,6 +97,7 @@
   border-bottom-right-radius: 5px;
   text-align: center;
 }
+
 
 /* ====================================== */
 /* Back to top button */

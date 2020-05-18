@@ -7,11 +7,12 @@
 }
 
 .post:nth-child(3n+1) {
-    background: #C1212E;
+    background: #231F20;
+    
 }
 
 .post:nth-child(3n+2) {
-    background: #231F20;
+    background: #C1212E;
 }
 
 .post:nth-child(3n+3) {
@@ -25,6 +26,7 @@
     margin: 2rem 0;
     border-radius: 3rem;
     transition: all .2s ease-in-out;
+    min-width: 400px;
 }
 
 .post:hover {
@@ -37,6 +39,7 @@ transform: scale(1.02);
     height: 200px;
     border-radius: 50%;
     margin: 3rem auto;
+    background: white;
 }
 
 .post > h3{
