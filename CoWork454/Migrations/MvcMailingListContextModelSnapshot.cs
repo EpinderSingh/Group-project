@@ -50,6 +50,9 @@ namespace CoWork454.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AuthorId1")
+                        .HasColumnType("int");
+
                     b.Property<DateTimeOffset>("DateTimePosted")
                         .HasColumnType("datetimeoffset");
 
@@ -66,6 +69,10 @@ namespace CoWork454.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("AuthorId1");
 
                     b.ToTable("NewsPosts");
                 });
@@ -95,6 +102,19 @@ namespace CoWork454.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("CoWork454.Models.NewsPost", b =>
+                {
+                    b.HasOne("CoWork454.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CoWork454.Models.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId1");
                 });
 #pragma warning restore 612, 618
         }
