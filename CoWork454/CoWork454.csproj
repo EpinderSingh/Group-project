@@ -20,6 +20,8 @@
     <Folder Include="wwwroot\js\components\" />
     <Folder Include="Common\" />
     <Folder Include="wwwroot\images\gallery\" />
+    <Folder Include="Views\News\" />
+    <Folder Include="wwwroot\css\pages\News\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
