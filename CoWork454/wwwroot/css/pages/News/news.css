@@ -3,19 +3,21 @@
 .news-post {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
-
-   
+    justify-content: space-evenly; 
 }
+
 .post:nth-child(3n+1) {
     background: #C1212E;
 }
+
 .post:nth-child(3n+2) {
     background: #231F20;
 }
+
 .post:nth-child(3n+3) {
     background: #11153F;
 }
+
 .post {
     cursor: pointer;
     width: 30vw;
@@ -24,22 +26,26 @@
     border-radius: 3rem;
     transition: all .2s ease-in-out;
 }
+
 .post:hover {
 transform: scale(1.02);
 }
-    .post > img {
-        display: block;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        margin: 3rem auto;
-    }
+
+.post > img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 3rem auto;
+}
+
 .post > h3{
     color:white;
     font-size:3rem;
     text-align:center;
     margin:2rem;
 }
+
 .post > p {
     color: white;
     font-size: 1.3rem;
@@ -52,6 +58,7 @@ transform: scale(1.02);
     -webkit-box-orient: vertical;
     word-spacing: 0.3rem;
 }
+
 .post > .news-date{
     text-align:center;
 }
