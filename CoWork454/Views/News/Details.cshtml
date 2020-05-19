@@ -1,14 +1,21 @@
-﻿@page
-
-@{
-    var newsPosts = (List<NewsPost>)ViewData["newspost"];
+﻿@{
+    var newsPost = (NewsPost)ViewData["newspost"];
+    
 }
 
 
-<div class="news-post">
+    <div class="news-post">
 
-    @{ 
+        @{
+            <a class="nchild" href="#">
+                <div class="post">
+                    <img src="@newsPost.NewsPhoto" />
+                    <h3>@newsPost.NewsTitle</h3>
+                    <p>@newsPost.NewsText</p>
+                    <h3>Cowork454</h3>
+                    <p class="news-date">@newsPost.DateTimePosted.ToString("MMMM dd yyyy")</p>
+                </div>
+            </a>
 
-        
-    }
-</div>
+        }
+    </div>
