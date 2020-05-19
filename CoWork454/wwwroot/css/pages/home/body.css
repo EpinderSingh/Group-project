@@ -414,7 +414,6 @@ a.news__featured__image:before {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 3rem;
     z-index: 120;
     visibility: hidden;
     opacity: 0;
@@ -426,16 +425,6 @@ a.news__featured__image:before {
     opacity: 1;
 }
 
-.special-header {
-    background: #f44336;
-    padding: 15px;
-    color: #fff;
-    width: 50%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    text-align: center;
-    font-size: 3rem;
-}
 
 .special-close {
     color: #ccc;
@@ -454,13 +443,13 @@ a.news__featured__image:before {
 .special-modal {
     padding: 0 2rem;
     background-color: white;
-    width: 50%;
-    height: 50%;
+    width: 90%;
+    height: 0%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    font-size: 3rem;
+    font-size: 5rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     text-align: center;

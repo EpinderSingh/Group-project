@@ -10,7 +10,7 @@
 }
 
 .footer {
-    background: #222222;
+    background: #231F20;
     padding: 50px;
 }
 
@@ -49,12 +49,12 @@
         }
 
             .footer .social_media ul li a {
-                display: block;
+
                 margin: 0 5px;
-                font-size: 2rem;
+                font-size: 5rem;
                 width: 50px;
                 height: 50px;
-                background: #fff;
+
                 line-height: 50px;
                 border-radius: 3px;
             }
