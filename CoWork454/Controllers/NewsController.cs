@@ -25,8 +25,9 @@ namespace CoWork454.Controllers
             return View();
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
+            ViewData["newspost"] = _context.NewsPosts.Find(id);
             return View();
         }
 
