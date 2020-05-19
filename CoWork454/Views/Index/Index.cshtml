@@ -218,8 +218,8 @@
         <div class="news__featured">
             <h3>@newsPosts[0].NewsTitle</h3>
             @{
-                var output = "";
-                if (@newsPosts[0].NewsText.Length > 900)
+                var output = @newsPosts[0].NewsText;
+                if (output.Length > 900)
                 {
                     var str = @newsPosts[0].NewsText.Substring(0, 900);
                     output = str.Substring(0, str.LastIndexOf(' '));
@@ -236,22 +236,23 @@
             @{ for (var i = 1; i < newsPosts.Count; i++)
                 {
                     
-                        <li>
-                                        <a href="/news/details/@newsPosts[i].Id">
-                                            <div class="news__post">
-                                                <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
-                                                <div class="news__content">
-                                                    <h3>@newsPosts[i].NewsTitle</h3>
-                                                    <p>@newsPosts[i].Author.FirstName @newsPosts[i].Author.LastName</p>
-                                                    <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                        </li>
+                  <li>
+                        <a href="/news/details/@newsPosts[i].Id">
+                        <div class="news__post">
+                        <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
+                        <div class="news__content">
+                            <h3>@newsPosts[i].NewsTitle</h3>
+                            <p>@newsPosts[i].Author.FirstName @newsPosts[i].Author.LastName</p>
+                            <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
+                        </div>
+                        </div>
+                        </a>
+                  </li>
                         
-                        }
-                        }
-                </ul>
+                }
+             }
+            
+       </ul>
     </div>
 
     <a href="/news" class="about-button">More News</a>
