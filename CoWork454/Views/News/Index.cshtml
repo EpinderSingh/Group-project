@@ -12,7 +12,7 @@
 
     @{ for (var i = 0; i < newsPosts.Count; i++)
         {
-            <a class="nchild" href="#">
+            <a class="nchild" href="/News/Details/@newsPosts[i].Id">
                 <div class="post">
                     <img src="@newsPosts[i].NewsPhoto" />
                     <h3>@newsPosts[i].NewsTitle</h3>

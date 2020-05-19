@@ -1,0 +1,30 @@
+﻿
+.blog{
+    display:flex;
+    flex-flow:column;
+    margin: 0 auto;
+    width:80%;
+}
+
+.blog h3{
+    font-size:3rem;
+    line-height: 300%;
+    text-align:center;
+}
+
+.blog > img {
+    width: 30%;
+    height: 30%;
+    margin: 3rem auto;  
+}
+
+.blog > p {
+    line-height:200%;
+    text-align:justify;
+    font-size:2rem;
+}
+
+.blog > .details-date{
+    text-align:end;
+    line-height:400%;
+}

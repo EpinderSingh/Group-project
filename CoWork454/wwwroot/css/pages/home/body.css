@@ -103,21 +103,9 @@
     padding: 0 2rem;
     background-color: white;
     width: 50%;
-    height: 40%;
+    height: 50%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    font-size: 3rem;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    text-align: center;
-    padding: 0 2rem;
-    background-color: white;
-    width: 50%;
-    height: 30%;
-    display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     font-size: 3rem;
@@ -355,6 +343,10 @@ a.news__featured__image:before {
     text-align: center;
     position: relative;
     margin: 0 auto;
+    transition: all .2s ease-in-out;
+}
+.about-offer:hover {
+    transform: scale(1.02);
 }
 
 .about-offer p {
