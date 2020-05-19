@@ -22,7 +22,8 @@ const onSelect = (evt) => {
 }
 const onSave = (evt) => {
     evt.preventDefault();
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
+    let updatePhoto = (!!newsPhotoElem.files[0]) ? newsPhotoElem.files[0] : newsPhotoDisplayElem.src;
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, updatePhoto, parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
 }
 
 const onPreview = (evt) => {
@@ -97,9 +98,8 @@ const getDetails = (newsPostId) => {
             idElem.value = newsPost.id;
             newsTitleElem.value = newsPost.newsTitle;
             newsTextElem.value = newsPost.newsText;
-            /* need to add link to upload pic */
             newsPhotoDisplayElem.src = newsPost.newsPhoto;
-            newsTagElem.selectedIndex = newsPost.newsTag;
+            newsTagElem.selectedIndex = newsPost.newsTag + 1;
         })
         .catch(err => { console.log(err) });
 }
