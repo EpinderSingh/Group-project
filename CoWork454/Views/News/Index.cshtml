@@ -12,13 +12,15 @@
 
     @{ for (var i = 0; i < newsPosts.Count; i++)
         {
-            <div class="post">
-                <img src="@newsPosts[i].NewsPhoto" />
-                <h3>@newsPosts[i].NewsTitle</h3>
-                <p>@newsPosts[i].NewsText</p>
-                <h3>Cowork454</h3>
-                <p class="news-date">@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
-            </div>
+            <a class="nchild" href="#">
+                <div class="post">
+                    <img src="@newsPosts[i].NewsPhoto" />
+                    <h3>@newsPosts[i].NewsTitle</h3>
+                    <p>@newsPosts[i].NewsText</p>
+                    <h3>Cowork454</h3>
+                    <p class="news-date">@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
+                </div>
+            </a>
         }
     }
     </div>
