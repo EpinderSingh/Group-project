@@ -14,6 +14,8 @@ namespace CoWork454.Models
         public string NewsPhoto { get; set; }
         public NewsTag NewsTag { get; set; }
 
+        public virtual User Author { get; set; }
+
         [NotMapped]
         public string NewsTagLabel { get
             { return NewsTag.ToString(); }

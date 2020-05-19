@@ -50,7 +50,7 @@ const getAll = () => {
                 const action1Cell = document.createElement('td');
                 const action2Cell = document.createElement('td');
                 newsPostIdCell.innerText = newsPost.id;
-                newsAuthorCell.innerText = newsPost.authorId;
+                newsAuthorCell.innerText = `${newsPost.author.firstName} ${newsPost.author.lastName}`;
 
                 var datePosted = new Date(Date.parse(newsPost.dateTimePosted));
 
@@ -80,7 +80,6 @@ const getAll = () => {
                 row.appendChild(newsAuthorCell);
                 row.appendChild(newsDateTimeCell);
                 row.appendChild(newsTitleCell);
-                /*row.appendChild(newsTextCell);*/
                 row.appendChild(newsPhotoCell);
                 row.appendChild(newsTagCell);
                 row.appendChild(action1Cell);

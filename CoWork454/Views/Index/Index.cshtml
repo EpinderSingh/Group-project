@@ -199,8 +199,7 @@
                                                 <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
                                                 <div class="news__content">
                                                     <h3>@newsPosts[i].NewsTitle</h3>
-                                                    <p>Cowork454</p>
-                                                    <!-- to add author! newsPosts[i].AuthorId -->
+                                                    <p>@newsPosts[i].Author.FirstName @newsPosts[i].Author.LastName</p>
                                                     <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
                                                 </div>
                                             </div>
