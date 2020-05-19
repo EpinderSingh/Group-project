@@ -85,7 +85,7 @@ namespace CoWork454.Controllers.Api
         [HttpPut("{id}")]
         public void Put(int id, IFormFile file, [FromForm] NewsPost model)
         {
-
+            var existingPost = _context.NewsPosts.Find(id);
             string filePath = null;
 
             if (file != null)
@@ -98,9 +98,9 @@ namespace CoWork454.Controllers.Api
 
             }
             //retain existing photo if none uploaded
-            else if (file == null && _context.NewsPosts.Find(id).NewsPhoto != null)
+            else if (file == null && existingPost.NewsPhoto != null)
                 {
-                    filePath = _context.NewsPosts.Find(id).NewsPhoto;
+                    filePath = existingPost.NewsPhoto;
                 }
 
             //if nothing use default image
@@ -109,11 +109,14 @@ namespace CoWork454.Controllers.Api
                 filePath = "/images/news_default.jpg";
             }
 
-            model.AuthorId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
-            model.NewsPhoto = filePath;
-            model.DateTimePosted = DateTimeOffset.Now;
+            existingPost.NewsText = model.NewsText;
+            existingPost.NewsTitle = model.NewsTitle;
+            existingPost.NewsTag = model.NewsTag;
+            existingPost.AuthorId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
+            existingPost.NewsPhoto = filePath;
+            existingPost.DateTimePosted = DateTimeOffset.Now;
 
-            _context.NewsPosts.Update(model);
+            _context.NewsPosts.Update(existingPost);
             _context.SaveChanges();
         }
 
