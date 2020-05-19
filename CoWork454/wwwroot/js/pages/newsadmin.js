@@ -22,7 +22,8 @@ const onSelect = (evt) => {
 }
 const onSave = (evt) => {
     evt.preventDefault();
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
+    let updatePhoto = (!!newsPhotoElem.files[0]) ? newsPhotoElem.files[0] : newsPhotoDisplayElem.src;
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, updatePhoto, parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
 }
 
 const onPreview = (evt) => {
@@ -50,7 +51,7 @@ const getAll = () => {
                 const action1Cell = document.createElement('td');
                 const action2Cell = document.createElement('td');
                 newsPostIdCell.innerText = newsPost.id;
-                newsAuthorCell.innerText = newsPost.authorId;
+                newsAuthorCell.innerText = `${newsPost.author.firstName} ${newsPost.author.lastName}`;
 
                 var datePosted = new Date(Date.parse(newsPost.dateTimePosted));
 
@@ -80,7 +81,6 @@ const getAll = () => {
                 row.appendChild(newsAuthorCell);
                 row.appendChild(newsDateTimeCell);
                 row.appendChild(newsTitleCell);
-                /*row.appendChild(newsTextCell);*/
                 row.appendChild(newsPhotoCell);
                 row.appendChild(newsTagCell);
                 row.appendChild(action1Cell);
@@ -98,9 +98,8 @@ const getDetails = (newsPostId) => {
             idElem.value = newsPost.id;
             newsTitleElem.value = newsPost.newsTitle;
             newsTextElem.value = newsPost.newsText;
-            /* need to add link to upload pic */
             newsPhotoDisplayElem.src = newsPost.newsPhoto;
-            newsTagElem.selectedIndex = newsPost.newsTag;
+            newsTagElem.selectedIndex = newsPost.newsTag + 1;
         })
         .catch(err => { console.log(err) });
 }

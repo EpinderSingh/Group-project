@@ -16,11 +16,20 @@
         <h2>COVID-19</h2>
     </div>
     <div class="alert-modal">
+        <h2>GOING VIRTUAL TO LIMIT ONSITE HEADCOUNT.</h2>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto et
-            veritatis iste odio incidunt repudiandae iusto explicabo excepturi
-            eligendi eius ipsum aut inventore, ab quaerat. Culpa reiciendis esse ut
-            mollitia?
+            CoWork454 remains open to members via their access cards, but the Front Doors are
+            closed to limit guest traffic. Members proactively moved to virtual meetings and moved
+            event series to a webinar format. Individual events were canceled.
+         </p>
+
+        <hr>
+
+         <h2>INCREASED CLEANING AND IN-OFFICE CLEANINGS.</h2>
+
+        <p> As of March 15, we have been disinfecting and cleaning the workspace at an increased
+            frequency. This includes disinfecting shared spaces and handles, private offices, and
+            outdoor terrace furniture.
         </p>
     </div>
 </div>
@@ -215,14 +224,9 @@
                     var str = @newsPosts[0].NewsText.Substring(0, 900);
                     output = str.Substring(0, str.LastIndexOf(' '));
                 }
-                else
-                {
-                    output = @newsPosts[0].NewsText;
-                }
-            }
-            <p>@output</p>
-            <a href="/news/@newsPosts[0].Id"><p>Read More</p></a>
-        </div>
+                <p>@output</p>
+                <a href="/news/details/@newsPosts[0].Id"><p>Read More</p></a>
+            </div>
 
     </div>
     <div class="news__right">
@@ -230,27 +234,26 @@
         <ul class="image-gallery news_gallery">
             @{ for (var i = 1; i < newsPosts.Count; i++)
                 {
-
-                    <li>
-                        <a href="/news/@newsPosts[i].Id">
-                            <div class="news__post">
-                                <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
-                                <div class="news__content">
-                                    <h3>@newsPosts[i].NewsTitle</h3>
-                                    <p>Cowork454</p>
-                                    <!-- to add author! newsPosts[i].AuthorId -->
-                                    <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                }
-            }
-        </ul>
+                    
+                        <li>
+                                        <a href="/news/details/@newsPosts[i].Id">
+                                            <div class="news__post">
+                                                <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
+                                                <div class="news__content">
+                                                    <h3>@newsPosts[i].NewsTitle</h3>
+                                                    <p>@newsPosts[i].Author.FirstName @newsPosts[i].Author.LastName</p>
+                                                    <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                        </li>
+                        
+                        }
+                        }
+                </ul>
     </div>
 
-    <a href="/index/news" class="about-button">More News</a>
+    <a href="/news" class="about-button">More News</a>
 </section>
 <!-------------Contact Us Section ----------------------->
 

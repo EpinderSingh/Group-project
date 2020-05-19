@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CoWork454.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MvcMailingList.Data;
 
-namespace CoWork454.Controllers
+namespace CoWork454.Controllers.Api
 {
-    public class BaseController : Controller
+    public class BaseApiController : ControllerBase
     {
-
         private readonly MvcMailingListContext _context;
 
-        public BaseController(MvcMailingListContext context)
+        public BaseApiController(MvcMailingListContext context)
         {
             _context = context;
         }
@@ -42,17 +38,5 @@ namespace CoWork454.Controllers
 
             return cookieContent;
         }
-
-        protected IActionResult AdminLogin()
-        {
-            var userId = GetEncryptedGenericCookie("USER_ID");
-            if (userId != null)
-            {
-                return View("../Admin/Index");
-            }
-
-            return RedirectToAction("Index", "User");
-        }
     }
-        
 }

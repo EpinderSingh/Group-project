@@ -1,9 +1,15 @@
 ﻿/* --------------------- */
+
+
 /* The alert message box */
+
+
 /* ---------------------- */
+
 .alert {
     padding: 0.7rem;
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
+    /* Red */
     color: white;
     /* border: solid 2px blue; */
 }
@@ -14,7 +20,10 @@
     font-size: 3rem;
     text-align: center;
 }
+
+
 /* The close button */
+
 .closebtn {
     margin: 0.5rem 2rem 0 2rem;
     color: white;
@@ -26,14 +35,22 @@
     transition: 0.3s;
 }
 
+
 /* When moving the mouse over the close button */
+
 .closebtn:hover {
     color: black;
 }
 
+
 /* ------------------ */
+
+
 /*      ALERT MODAL    */
+
+
 /* ------------------- */
+
 .alert-bg {
     position: fixed;
     width: 100%;
@@ -86,6 +103,18 @@
     padding: 0 2rem;
     background-color: white;
     width: 50%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    padding: 0 2rem;
+    background-color: white;
+    width: 50%;
     height: 30%;
     display: flex;
     justify-content: space-around;
@@ -97,9 +126,15 @@
     text-align: center;
 }
 
+
 /* ====================================== */
+
+
 /* Back to top button */
+
+
 /* ====================================== */
+
 .to-top {
     background: white;
     position: fixed;
@@ -124,9 +159,16 @@
     pointer-events: auto;
     opacity: 1;
 }
+
+
 /* ---------------- */
+
+
 /*    VIDEO Style   */
+
+
 /* ---------------- */
+
 .showcase {
     /* border: solid 2px blue; */
     position: relative;
@@ -145,19 +187,23 @@
     text-align: center;
     font-size: 4rem;
     z-index: 10;
-    background: rgb(17, 21, 63, 0.5);
+    background: rgba(17, 21, 63, 0.5);
     padding: 0 4rem;
     margin: 1px;
     color: rgb(209, 202, 202);
 }
 
-/* ---------------------------- */
-/*        News Section         */
+
 /* ---------------------------- */
 
+
+/*        News Section         */
+
+
+/* ---------------------------- */
 
 .news-container {
-    background-color: #231F20;
+    background-color: #231f20;
     color: white;
     text-align: center;
     padding: 4% 3%;
@@ -169,13 +215,13 @@
     text-decoration: none;
 }
 
-    .news-container ul {
-        list-style-type: none;
-    }
+.news-container ul {
+    list-style-type: none;
+}
 
-    .news-container h2 {
-        margin-bottom: 30px;
-    }
+.news-container h2 {
+    margin-bottom: 30px;
+}
 
 .news__left,
 .news__post {
@@ -194,7 +240,7 @@
 }
 
 .news__post {
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 150px 1fr;
 }
 
 .news__post {
@@ -208,7 +254,8 @@
 }
 
 .news__left p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    text-align: initial;
 }
 
 .news__featured__image,
@@ -216,7 +263,7 @@
     position: relative;
     width: 240px;
     height: 240px;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     background-size: cover;
     background-position: center;
@@ -234,8 +281,8 @@ a.news__featured__image:before {
 }
 
 .news__image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 @media (max-width: 700px) {
@@ -244,21 +291,20 @@ a.news__featured__image:before {
         margin-right: 0;
         margin-bottom: 40px;
     }
-
     .news__featured__image {
         margin: auto;
         margin-bottom: 30px;
     }
 }
 
-
 .news__content h3 {
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .news__content p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    text-align: end;
 }
 
 .news__gallery h3 {
@@ -270,36 +316,24 @@ a.news__featured__image:before {
     margin-bottom: 30px !important;
 }
 
-.news__right .lSAction > a {
-    display: none;
-}
-
-.news__right .lSSlideOuter .lSPager.lSGallery img {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    #fws_5bf52d425b033 .vc_col-sm-3 {
-        width: 23.404255317%;
-        margin-right: 2%;
-    }
-
-    #fws_5bf52d425b033 .vc_col-sm-6 {
-        width: 48.93617020799999%;
-    }
-}
-
 @media (max-width: 1000px) {
     .news__left,
     .news__post {
         width: 100%;
         max-width: inherit;
+        padding: 5% 2%;
     }
 }
 
+
 /* ---------------------------- */
+
+
 /*        About Section         */
+
+
 /* ---------------------------- */
+
 .about-container {
     background-color: #11153f;
     padding: 40px 0;
@@ -342,10 +376,10 @@ a.news__featured__image:before {
     padding: 2rem 0;
 }
 
-    .about-text p,
-    .news-text p {
-        margin: 1rem 0;
-    }
+.about-text p,
+.news-text p {
+    margin: 1rem 0;
+}
 
 .about-button {
     padding: 1rem 5rem;
@@ -360,8 +394,13 @@ a.news__featured__image:before {
     width: 40%;
 }
 
+
 /* ------------------------- */
+
+
 /*      Special offers Modal */
+
+
 /* ------------------------- */
 
 .special-bg {
@@ -416,8 +455,13 @@ a.news__featured__image:before {
     text-align: center;
 }
 
+
 /* -------------------------------- */
+
+
 /*          Service                 */
+
+
 /* -------------------------------- */
 
 .services {
@@ -447,7 +491,6 @@ a.news__featured__image:before {
 @media only screen and (min-width: 768px) {
     .services {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        
     }
 }
 
@@ -455,7 +498,7 @@ a.news__featured__image:before {
     background-color: #11153f;
     height: 100%;
     text-align: center;
-    padding-bottom:3rem;
+    padding-bottom: 3rem;
 }
 
 .services-col {
@@ -492,11 +535,17 @@ a.news__featured__image:before {
     object-fit: cover;
 }
 
+
 /* ---------------- */
+
+
 /*   Map section    */
+
+
 /* ---------------- */
+
 .map {
-    padding: 0 auto;
+    padding: 0;
     margin: 0.3rem auto 0.3rem auto;
     background: linear-gradient(to right, #11153f, #c1212e);
     clear: both;
@@ -528,13 +577,11 @@ a.news__featured__image:before {
         position: relative;
         margin-top: 0.3rem;
     }
-
     .about-offer {
         position: absolute;
         right: 5%;
         top: 25%;
     }
-
     .about-text {
         width: 50%;
         margin: 0 0 0 5rem;
@@ -547,9 +594,7 @@ a.news__featured__image:before {
         width: 45%;
         margin: 0 auto;
         text-align: center;
-        
     }
-
     .about-offer {
         right: 2%;
     }
