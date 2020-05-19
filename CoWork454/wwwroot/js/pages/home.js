@@ -51,3 +51,62 @@ window.addEventListener('scroll', () => {
     toTop.classList.remove('active');
   }
 });
+
+// =======================================
+// Pricing Packages slider
+// =======================================
+
+function check() {
+    var checkBox = document.getElementById("checbox");
+    var text1 = document.getElementsByClassName("text1");
+    var text2 = document.getElementsByClassName("text2");
+
+    for (var i = 0; i < text1.length; i++) {
+        if (checkBox.checked == true) {
+            text1[i].style.display = "block";
+            text2[i].style.display = "none";
+        } else if (checkBox.checked == false) {
+            text1[i].style.display = "none";
+            text2[i].style.display = "block";
+        }
+    }
+}
+check();
+
+// =======================================
+// Contact Us Form
+// =======================================
+
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const email = document.querySelector('#email').value;
+const phoneNumber = document.querySelector('#phoneNumber');
+const subject = document.querySelector('#subject');
+const message = document.querySelector('#message');
+const form = document.querySelector('.contactUs');
+form.addEventListener('submitBtn', (event) => {
+    event.preventDefault();
+    const body = {
+        firstname: firstName.value,
+        lastname: lastName.value,
+        emailaddress: email.value,
+        phonenumber: phoneNumber.value,
+        subjectLine: subject.value,
+        messagebody: message.value,
+    }
+    const sendMessage = {
+        body: JSON.stringify(body),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch('localhost:5001/api/ContactApi', sendMessage)
+        .then(res => res.json())
+        .then(() => {
+            alert("message sent");
+        })
+        .catch(err => {
+        });
+
+});
