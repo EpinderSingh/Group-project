@@ -25,6 +25,19 @@ namespace CoWork454.Controllers
 
            return AdminLogin();
 
+        }
+
+        public IActionResult Resources()
+        {
+
+            return View();
+
+        }
+
+        public IActionResult Bookings()
+        {
+
+            return View();
 
         }
 

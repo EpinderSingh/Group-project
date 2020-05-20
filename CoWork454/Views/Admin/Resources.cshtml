@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Resource Admin";
+}
+@Html.Partial("_AdminNavPartial")
+    <div class="admin__main">
+        <div class="admin modal-container">
+            <div class="admin modal-content">
+                <div class="admin modal__close">
+                    <span class="admin display__topright">&times;</span>
+                </div>
+                <div class="resource-post">
+                    <div class="post">
+                        <img id="preview__image" />
+                        <h3 id="preview__name"></h3>
+                        <p id="preview__description"></p>
+                        <p id="preview__max__capacity"></p>
+                        <p id="preview__has__vc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="admin container">
+            <h1>Admin Panel</h1>
+            <h2>Current Resources</h2>
+            <table class="admin resource__admin">
+                <thead>
+                    <tr>
+                        <th>Resource ID</th>
+                        <th>Resource Name</th>
+                        <th>Resource Description</th>
+                        <th>Resource Image</th>
+                        <th>Resource Max Capacity</th>
+                        <th>Resource Has VC?</th>
+                        <th>Delete</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <h2>Add new resource</h2>
+            <div class="admin resource__admin">
+                <form>
+
+                    <label class="description" for="resourceName">Resource Name</label>
+                    <input id="resourceName" name="resourceName" type="text" maxlength="255" value="" required />
+
+                    <label class="description" for="resourceDescription">Resource Description</label>
+                    <textarea id="resourceDescription" name="resourceDescription" required></textarea>
+
+                    <img class="admin resource__admin resource__photo" alt="resource image" />
+
+                    <label class="description" for="resourcePhoto">Upload Photo</label>
+                    <input id="resourcePhoto" name="resourcePhoto" class="element file" type="file" />
+
+                    <label class="description" for="resourceMaxCapacity">Resource Maximum Capacity</label>
+                    <input type="number" id="resourceMaxCapacity" name="resourceMaxCapacity" required />
+
+                    <label class="description" for="resourceHasVC">Resource Has VC?</label>
+                    <input type="checkbox" id="resourceHasVC" name="resourceHasVC" required />
+
+                    <input type="hidden" id="resourceId" name="id" />
+                    <div class="admin admin__btn">
+                        <button class="admin__btn" type="submit" id="ResourceSaveButton">Save</button>
+                        <button class="admin__btn" id="ResourceClearButton">Clear</button>
+                        <button class="admin__btn" id="ResourcePreviewButton">Preview</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+@section scripts {
+    <script src="~/js/pages/resourceadmin.js" asp-append-version="true"></script>
+}

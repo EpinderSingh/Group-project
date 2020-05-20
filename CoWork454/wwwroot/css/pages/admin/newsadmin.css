@@ -55,12 +55,14 @@
 
 }
 
-.news__admin input {
+.news__admin input,
+.resource__admin input {
     background: transparent;
     color: white;
 }
 
-table.admin.news__admin {
+table.admin.news__admin,
+table.admin.resource__admin {
     border-collapse: collapse;
     width: 100%;
     padding: 2%;
@@ -69,21 +71,21 @@ table.admin.news__admin {
     margin: 5% 0;
 }
 
-    table.admin.news__admin th {
+    table.admin.news__admin th,
+    table.admin.resource__admin th {
         background-color: black;
         font-weight: 700;
-    }
-
-    table.admin.news__admin td,
-    table.admin.news__admin th {
         padding: 1%;
     }
 
-    table.admin.news__admin tr:hover {
+
+    table.admin.news__admin tr:hover,
+    table.admin.resource__admin tr:hover {
         background-color: black;
     }
 
-.admin.news__admin form {
+.admin.news__admin form,
+.admin.resource__admin form {
     display: flex;
     flex-direction: column;
     padding: 2% 0;
@@ -92,14 +94,16 @@ table.admin.news__admin {
     padding: 2%
 }
 
-.admin.news__admin.news__btn {
+.admin.news__admin.news__btn,
+.admin__btn {
     display: flex;
     flex-direction: row;
     padding: 1%;
     justify-content: space-around;
 }
 
-.news__btn button {
+.news__btn button,
+.admin__btn button {
     background: white;
     text-align: center;
     padding: 15px;
@@ -109,7 +113,8 @@ table.admin.news__admin {
     text-transform: uppercase;
 }
 
-.admin.news__admin.news__post__photo {
+.admin.news__admin.news__post__photo,
+.admin.resource__admin.resource__photo {
     height: 300px;
     width: 300px;
 }
