@@ -1,3 +1,18 @@
-﻿@page
+﻿
+
 @{
+    var newsPosts = (NewsPost)ViewData["newspost"];
+
 }
+
+    @{ 
+
+        <div class="blog">
+            <h3>@newsPosts.NewsTitle</h3>
+            <img src="@newsPosts.NewsPhoto" />
+            <p>@newsPosts.NewsText</p>
+            <h3>Cowork454</h3>
+            <p class="details-date">@newsPosts.DateTimePosted.ToString("MMMM dd yyyy")</p>
+        </div>
+    }
+

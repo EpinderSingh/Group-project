@@ -6,21 +6,19 @@
     justify-content: space-evenly; 
 }
 
-.post:nth-child(3n+1) {
+.nchild:nth-child(3n+1) {
     background: #231F20;
-    
 }
 
-.post:nth-child(3n+2) {
+.nchild:nth-child(3n+2) {
     background: #C1212E;
 }
 
-.post:nth-child(3n+3) {
+.nchild:nth-child(3n+3) {
     background: #11153F;
 }
 
-.post {
-    cursor: pointer;
+.nchild {
     width: 30vw;
     height: 70vh;
     margin: 2rem 0;
@@ -29,8 +27,8 @@
     min-width: 400px;
 }
 
-.post:hover {
-transform: scale(1.02);
+.nchild:hover {
+    transform: scale(1.02);
 }
 
 .post > img {
@@ -39,7 +37,6 @@ transform: scale(1.02);
     height: 200px;
     border-radius: 50%;
     margin: 3rem auto;
-    background: white;
 }
 
 .post > h3{

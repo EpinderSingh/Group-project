@@ -52,7 +52,7 @@ namespace CoWork454.Controllers
             SetEncryptedGenericCookie("USER_ID", existingUser.Id.ToString());
 
             // redirect to Home
-            return RedirectToAction("Index", "Index");
+            return RedirectToAction("Index", "Admin");
         }
 
         // Register read view

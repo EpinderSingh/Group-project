@@ -1,6 +1,5 @@
 ﻿.gallery-main {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to left, #11153f, #c1212e);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -8,8 +7,8 @@
 }
 
 .img-h1 {
-    font-size: 3rem;
-    color: rgb(219, 213, 213);
+    font-size: 10rem;
+    color: black;
 }
 
 .img-h1 img {
@@ -17,7 +16,7 @@
 }
 
 .gallery {
-    padding: 50px auto;
+    padding: 50px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -44,14 +43,14 @@
     flex-wrap: wrap;
     justify-content: center;
     text-decoration: none;
-    font-size: 4rem;
+    font-size: 10rem;
     border-radius: 20px;
     margin-bottom: 8rem;
 }
 
 .a-360 {
     text-decoration: none;
-    color: rgb(219, 213, 213);
+    color: black;
 }
 
 .a-360:hover,

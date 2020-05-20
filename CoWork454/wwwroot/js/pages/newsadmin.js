@@ -8,6 +8,30 @@ const newsTagElem = document.querySelector('select[name="newsTag"]');
 const saveBtn = document.querySelector('#newsPostSaveButton');
 const clearBtn = document.querySelector('#newsPostClearButton');
 const previewBtn = document.querySelector('#newsPostPreviewButton');
+
+//update for preview news post method
+const newsPreviewContainer = document.querySelector('.admin.modal-container');
+const newsPreviewImage = document.querySelector('#preview__image');
+const newsPreviewTitle = document.querySelector('#preview__title');
+const newsPreviewText = document.querySelector('#preview__text');
+const newsPreviewAuthor = document.querySelector('#preview__author');
+const newsPreviewDate = document.querySelector('.news-date');
+
+const onPreview = (evt) => {
+    evt.preventDefault();
+    newsPreviewContainer.classList.add('show');
+    newsPreviewImage.src = newsPhotoDisplayElem.src;
+    newsPreviewTitle.innerText = newsTitleElem.value;
+    newsPreviewText.innerText = newsTextElem.value;
+    newsPreviewAuthor.innerText = 'CoWork454 Admin';
+    newsPreviewDate.innerText = new Date().toDateString();
+
+    newsPreviewContainer.addEventListener('click', (evt) => {
+        newsPreviewContainer.classList.remove('show');
+    })
+}
+
+
 const onDelete = (evt) => {
     evt.preventDefault();
     const deleteBtn = evt.currentTarget;
@@ -23,12 +47,7 @@ const onSelect = (evt) => {
 const onSave = (evt) => {
     evt.preventDefault();
     let updatePhoto = (!!newsPhotoElem.files[0]) ? newsPhotoElem.files[0] : newsPhotoDisplayElem.src;
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, updatePhoto, parseInt(newsTagElem.value)) : addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
-}
-
-const onPreview = (evt) => {
-    evt.preventDefault();
-    alert("Need to do preview method!");
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value), newsTitleElem.value, newsTextElem.value, updatePhoto, parseInt(newsTagElem.value)): addNew(newsTitleElem.value, newsTextElem.value, newsPhotoElem.files[0], parseInt(newsTagElem.value));
 }
 
 const onClear = (evt) => {
@@ -133,7 +152,7 @@ const updateExisting = (newsPostId, newsTitle, newsText, newsPhoto, newsTag) => 
     data.append('NewsTitle', newsTitle);
     data.append('NewsText', newsText);
     data.append('NewsTag', newsTag);
-    
+
     const fetchOptions = {
         body: data,
         method: 'PUT',
