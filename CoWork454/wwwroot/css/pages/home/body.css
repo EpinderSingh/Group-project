@@ -274,7 +274,7 @@ a.news__featured__image:before {
     height: 150px;
 }
 
-news__link {
+.news__link {
     clear: both;
     padding: 5% 0;
 }
