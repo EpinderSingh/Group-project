@@ -2,68 +2,84 @@
     ViewData["Title"] = "Admin Panel";
 }
 @Html.Partial("_AdminNavPartial")
-<div class="admin__main">
-    <div class="admin container">
-
-        <h1>Admin Panel</h1>
-        <h2>Current News Posts</h2>
-        <table class="admin news__admin">
-            <thead>
-                <tr>
-                    <th>Post ID</th>
-                    <th>News Post Author</th>
-                    <th>News Post Date</th>
-                    <th>News Post Title</th>
-                    <!--<th>News Post Body Text</th> -->
-                    <th>News Post Image</th>
-                    <th>News Post Tag</th>
-                    <th>Delete</th>
-                    <th>Select</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-
-        <h2>Add new blog post</h2>
-        <div class="admin news__admin">
-            <form>
-
-                <label class="description" for="newsTitle">News Post Title</label>
-                <input id="newsTitle" name="newsTitle" type="text" maxlength="255" value="" required />
-
-                <label class="description" for="newsText">News Post Body Text</label>
-                <textarea id="newsText" name="newsText" required></textarea>
-
-                <img class="admin news__admin news__post__photo" alt="news image" />
-
-                <label class="description" for="newsPhoto">Upload Photo</label>
-                <input id="newsPhoto" name="newsPhoto" class="element file" type="file" />
-
-                <label class="description" for="newsTag" required>News Tag</label>
-
-                <select name="newsTag" required>
-                    <option>Please Select</option>
-                    <option value="0">Events</option>
-                    <option value="1">Uncategorised</option>
-                    <option value="2">Challenges</option>
-                    <option value="3">Announcements</option>
-                    <option value="4">Partnerships</option>
-                    <option value="5">Interviews</option>
-                    <option value="6">Jobs</option>
-                    <option value="7">ideas</option>
-                </select>
-
-                <input type="hidden" id="newsPostId" name="id" />
-                <div class="admin news__admin news__btn">
-                    <button class="news__btn" type="submit" id="newsPostSaveButton">Save</button>
-                    <button class="news__btn" id="newsPostClearButton">Clear</button>
-                    <button class="news__btn" id="newsPostPreviewButton">Preview</button>
+    <div class="admin__main">
+        <div class="admin modal-container">
+            <div class="admin modal-content">
+                <div class="admin modal__close">
+                    <span class="admin display__topright">&times;</span>
                 </div>
+                <div class="news-post">
+                    <div class="post">
+                        <img id="preview__image" />
+                        <h3 id="preview__title"></h3>
+                        <p id="preview__text"></p>
+                        <h3 id="preview__author"></h3>
+                        <p class="news-date"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            </form>
+        <div class="admin container">
+            <h1>Admin Panel</h1>
+            <h2>Current News Posts</h2>
+            <table class="admin news__admin">
+                <thead>
+                    <tr>
+                        <th>Post ID</th>
+                        <th>News Post Author</th>
+                        <th>News Post Date</th>
+                        <th>News Post Title</th>
+                        <!--<th>News Post Body Text</th> -->
+                        <th>News Post Image</th>
+                        <th>News Post Tag</th>
+                        <th>Delete</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <h2>Add new blog post</h2>
+            <div class="admin news__admin">
+                <form>
+
+                    <label class="description" for="newsTitle">News Post Title</label>
+                    <input id="newsTitle" name="newsTitle" type="text" maxlength="255" value="" required />
+
+                    <label class="description" for="newsText">News Post Body Text</label>
+                    <textarea id="newsText" name="newsText" required></textarea>
+
+                    <img class="admin news__admin news__post__photo" alt="news image" />
+
+                    <label class="description" for="newsPhoto">Upload Photo</label>
+                    <input id="newsPhoto" name="newsPhoto" class="element file" type="file" />
+
+                    <label class="description" for="newsTag" required>News Tag</label>
+
+                    <select name="newsTag" required>
+                        <option>Please Select</option>
+                        <option value="0">Events</option>
+                        <option value="1">Uncategorised</option>
+                        <option value="2">Challenges</option>
+                        <option value="3">Announcements</option>
+                        <option value="4">Partnerships</option>
+                        <option value="5">Interviews</option>
+                        <option value="6">Jobs</option>
+                        <option value="7">ideas</option>
+                    </select>
+
+                    <input type="hidden" id="newsPostId" name="id" />
+                    <div class="admin news__admin news__btn">
+                        <button class="news__btn" type="submit" id="newsPostSaveButton">Save</button>
+                        <button class="news__btn" id="newsPostClearButton">Clear</button>
+                        <button class="news__btn" id="newsPostPreviewButton">Preview</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 @section scripts {
     <script src="~/js/pages/newsadmin.js" asp-append-version="true"></script>

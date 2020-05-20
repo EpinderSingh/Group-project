@@ -1,2 +1,133 @@
-﻿.contact {
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+
+
+.contact-title {
+    font-size: 3rem;
+    color: white;
+}
+
+.htwo, .hthree {
+    color: white;
+}
+
+.contact-container {
+    background: #231F20;
+    display: flex;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-content {
+    position: relative;
+    top: 30%;
+    left: 30%;
+}
+
+.wrapper {
+    position: flex;
+    width: 100%;
+    padding: 0px;
+    padding-bottom: 25px;
+}
+
+.contact-form {
+    display: flex;
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    margin-right: 6%;
+}
+
+.input-fields,
+.msg {
+    width: 45%;
+}
+
+    .input-fields .input,
+    .msg textarea {
+        margin: 10px 0;
+        background: transparent;
+        border: 0px;
+        border-bottom: 2px solid white;
+        padding: 10px;
+        color: white;
+        width: 100%;
+        resize: none;
+    }
+
+    .msg textarea {
+        height: 233px;
+    }
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+::-moz-placeholder {
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+#submitBtn {
+    float: right;
+    background: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 920px) {
+    .contact-content {
+        width: 50%;
+    }
+
+    .contact-form {
+        flex-direction: column;
+    }
+
+    .msg textarea {
+        height: 80px;
+    }
+
+    .input-fields,
+    .msg {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contact-content {
+        width: 50%;
+    }
+
+    .contact-form {
+        flex-direction: column;
+    }
+
+    .msg textarea {
+        height: 80px;
+    }
+
+    .input-fields,
+    .msg {
+        width: 100%;
+    }
 }

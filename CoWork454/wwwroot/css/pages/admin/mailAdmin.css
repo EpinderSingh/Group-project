@@ -1,36 +1,30 @@
-﻿.admin.container {
-    margin: 0 auto;
-    max-width: 900px;
-    width: 90%;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+
+body {
+    background-color: #333333;
 }
 
-table.admin.mail__list {
-    border-collapse: collapse;
-    width: 100%;
+h1{
+    font-size: 3rem;
 }
 
-.admin.mail__list table td,
-.admin.mail__list table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-table.admin.mail__list tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-table.admin.mail__list tr:hover {
-    background-color: #ddd;
-}
-
-table.admin.mail__list th {
-    padding: 5% 0;
-    text-align: left;
-    background-color: #11153F;
+.container {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5;
     color: white;
 }
 
-.admin.mail__list form {
+
+.mail__list {
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+td, th {
+    font-size: 2.5rem;
+    color: white;
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
 }

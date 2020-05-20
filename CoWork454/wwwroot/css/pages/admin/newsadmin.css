@@ -8,9 +8,9 @@
     color: white;
 }
 
-.admin__main h1 {
-    font-size: 5rem;
-}
+    .admin__main h1 {
+        font-size: 5rem;
+    }
 
     .admin__main h2 {
         font-size: 4rem;
@@ -20,6 +20,38 @@
     margin: 0 auto;
     max-width: 1400px;
     width: 90%;
+}
+
+.admin.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .admin.modal-container.show {
+        display: flex;
+    }
+
+    .admin.modal-container.modal-content {
+        background-color: white;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        flex-basis: 40vh;
+    }
+
+.admin.display__topright {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 }
 
@@ -32,8 +64,8 @@ table.admin.news__admin {
     border-collapse: collapse;
     width: 100%;
     padding: 2%;
-    border: 2px solid white;
-    font-size: 7rem;
+    /*border: 2px solid white;*/
+    font-size: 4rem;
     margin: 5% 0;
 }
 
@@ -44,13 +76,12 @@ table.admin.news__admin {
 
     table.admin.news__admin td,
     table.admin.news__admin th {
-        
         padding: 1%;
     }
 
-table.admin.news__admin tr:hover {
-    background-color: black;
-}
+    table.admin.news__admin tr:hover {
+        background-color: black;
+    }
 
 .admin.news__admin form {
     display: flex;
@@ -66,7 +97,6 @@ table.admin.news__admin tr:hover {
     flex-direction: row;
     padding: 1%;
     justify-content: space-around;
-    
 }
 
 .news__btn button {

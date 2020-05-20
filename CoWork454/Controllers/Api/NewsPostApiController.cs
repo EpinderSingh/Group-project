@@ -85,8 +85,38 @@ namespace CoWork454.Controllers.Api
         [HttpPut("{id}")]
         public void Put(int id, IFormFile file, [FromForm] NewsPost model)
         {
-            updateModelValues(file, model);
-            _context.NewsPosts.Update(model);
+            var existingPost = _context.NewsPosts.Find(id);
+            string filePath = null;
+
+            if (file != null)
+            {
+                using (var stream = file.OpenReadStream())
+                {
+                    var connectionString = _configuration.GetConnectionString("StorageConnection");
+                    filePath = AzureStorage.AddUpdateFile(file.FileName, stream, connectionString, "CoWork454Container");
+                }
+
+            }
+            //retain existing photo if none uploaded
+            else if (file == null && existingPost.NewsPhoto != null)
+                {
+                    filePath = existingPost.NewsPhoto;
+                }
+
+            //if nothing use default image
+            else 
+            {
+                filePath = "/images/news_default.jpg";
+            }
+
+            existingPost.NewsText = model.NewsText;
+            existingPost.NewsTitle = model.NewsTitle;
+            existingPost.NewsTag = model.NewsTag;
+            existingPost.AuthorId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
+            existingPost.NewsPhoto = filePath;
+            existingPost.DateTimePosted = DateTimeOffset.Now;
+
+            _context.NewsPosts.Update(existingPost);
             _context.SaveChanges();
         }
 
