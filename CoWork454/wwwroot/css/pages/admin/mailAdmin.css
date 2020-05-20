@@ -1,16 +1,14 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
 
-body {
-    background-color: #333333;
-}
 
-h1{
+
+sub-title{
     font-size: 3rem;
 }
 
-.container {
+.admin {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5;
+    font-size: 2.5rem;
     color: white;
 }
 
@@ -22,9 +20,8 @@ h1{
 }
 
 td, th {
-    font-size: 2.5rem;
+    font-size: 1.5em;
     color: white;
-    border: 1px solid #999;
     padding: 0.5rem;
     text-align: left;
 }
