@@ -21,13 +21,14 @@
             CoWork454 remains open to members via their access cards, but the Front Doors are
             closed to limit guest traffic. Members proactively moved to virtual meetings and moved
             event series to a webinar format. Individual events were canceled.
-         </p>
+        </p>
 
         <hr>
 
-         <h2>INCREASED CLEANING AND IN-OFFICE CLEANINGS.</h2>
+        <h2>INCREASED CLEANING AND IN-OFFICE CLEANINGS.</h2>
 
-        <p> As of March 15, we have been disinfecting and cleaning the workspace at an increased
+        <p>
+            As of March 15, we have been disinfecting and cleaning the workspace at an increased
             frequency. This includes disinfecting shared spaces and handles, private offices, and
             outdoor terrace furniture.
         </p>
@@ -87,7 +88,7 @@
     <div class="special-bg">
         <div class="special-header">
             <span class="special-close">&times;</span>
- 
+
         </div>
         <div class="special-modal">
             <div class="container">
@@ -238,8 +239,8 @@
                 }
                 <p>@output</p>
                 <a href="/news/details/@newsPosts[0].Id"><p>Read More</p></a>
-                }
-            </div>
+            }
+        </div>
 
     </div>
     <div class="news__right">
@@ -247,24 +248,24 @@
         <ul class="image-gallery news_gallery">
             @{ for (var i = 1; i < newsPosts.Count; i++)
                 {
-                    
-                  <li>
+
+                    <li>
                         <a href="/news/details/@newsPosts[i].Id">
-                        <div class="news__post">
-                        <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
-                        <div class="news__content">
-                            <h3>@newsPosts[i].NewsTitle</h3>
-                            <p>@newsPosts[i].Author.FirstName @newsPosts[i].Author.LastName</p>
-                            <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
-                        </div>
-                        </div>
+                            <div class="news__post">
+                                <div class="news__image" style="background-image: url('@newsPosts[i].NewsPhoto')"></div>
+                                <div class="news__content">
+                                    <h3>@newsPosts[i].NewsTitle</h3>
+                                    <p>@newsPosts[i].Author.FirstName @newsPosts[i].Author.LastName</p>
+                                    <p>@newsPosts[i].DateTimePosted.ToString("MMMM dd yyyy")</p>
+                                </div>
+                            </div>
                         </a>
-                  </li>
-                        
+                    </li>
+
                 }
-             }
-            
-       </ul>
+            }
+
+        </ul>
     </div>
 
     <a href="/news" class="about-button">More News</a>
@@ -325,13 +326,7 @@
     <i class="fas fa-chevron-up"></i>
 </a>
 
-<<<<<<< HEAD
 <!----------   Scripts ---------------->
-    @section scripts{
-        <script type=" text/javascript " src="~/js/pages/home.js " asp-append-version="true"></script>
-    }
-=======
 @section scripts{
     <script type=" text/javascript " src="~/js/pages/home.js " asp-append-version="true"></script>
 }
->>>>>>> 15d4b6948a6f8d70f51869c04fefb161c64f0175
