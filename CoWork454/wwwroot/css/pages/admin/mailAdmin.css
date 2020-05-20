@@ -8,8 +8,8 @@ sub-title{
 
 .admin {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
-    color: black;
+    font-size: 2.5rem;
+    color: white;
 }
 
 
@@ -22,7 +22,6 @@ sub-title{
 td, th {
     font-size: 1.5em;
     color: white;
-    border: 1px solid #999;
     padding: 0.5rem;
     text-align: left;
 }
