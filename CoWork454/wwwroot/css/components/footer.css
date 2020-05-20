@@ -1,13 +1,4 @@
 ﻿
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 62.5%;
-}
 
 .footer {
     background: #231F20;
@@ -26,37 +17,42 @@
     font-size: 2rem;
 }
 
-.footer .footer_menu ul li a {
-    display: block;
-    margin-bottom: 6px;
-    color: #fff;
-    font-size: 2rem;
-}
+    .footer .footer_menu ul li a {
+        text-decoration: none;
+        list-style: none;
+        display: block;
+        margin-bottom: 6px;
+        color: #fff;
+        font-size: 2rem;
+    }
 
 .footer .footer_menu ul li a:hover {
     text-decoration: underline;
 }
 
 
-.footer .social_media {
-    text-align: center;
-}
+    .footer .social_media {
+        text-align: center;
+    }
 
 .footer .social_media ul {
+    list-style: none;
     display: flex;
+    color: white;
     justify-content: center;
     margin-bottom: 15px;
 }
 
-.footer .social_media ul li a {
-
-    margin: 0 5px;
-    font-size: 5rem;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 3px;
-}
+    .footer .social_media ul li a {
+        color: white;
+        text-decoration: none;
+        list-style: none;
+        margin: 0 5px;
+        font-size: 5rem;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
 
 .copyright {
     font-size: 1.5rem;
@@ -66,15 +62,15 @@
 
 
 .footer .social_media ul li a.facebook:hover {
-    background: lightgrey;
+    color: lightgrey;
 }
 
 .footer .social_media ul li a.twitter:hover {
-    background: lightgrey;
+    color: lightgrey;
 }
 
 .footer .social_media ul li a.instagram:hover {
-    background: lightgrey;
+    color: lightgrey;
 }
 
 .footer .social_media {

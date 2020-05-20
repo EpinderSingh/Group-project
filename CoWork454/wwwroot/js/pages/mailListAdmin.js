@@ -1,4 +1,5 @@
 ﻿const mailListData = document.querySelector('.subdata');
+const clearBtn = document.querySelector('#newsPostClearButton');
 
 const getAll = () => {
     mailListData.innerHTML = '';    
@@ -28,3 +29,10 @@ const getAll = () => {
 }
 
 getAll();
+
+const onDelete = (evt) => {
+    evt.preventDefault();
+    const deleteBtn = evt.currentTarget;
+    const newsPostId = deleteBtn.getAttribute('data-newspost-id');
+    deleteExisting(parseInt(newsPostId));
+}

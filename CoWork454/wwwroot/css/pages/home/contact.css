@@ -12,6 +12,7 @@
 }
 
 .contact-container {
+    margin-top: 0.3rem;
     text-align:center;
     background: #231F20;
     display: flex;
@@ -98,7 +99,7 @@
 
 @media screen and (max-width: 920px) {
     .contact-content {
-        width: 50%;
+        width: 80%;
     }
 
     .contact-form {
@@ -106,7 +107,7 @@
     }
 
     .msg textarea {
-        height: 80px;
+        height: 200px;
     }
 
     .input-fields,
@@ -117,7 +118,7 @@
 
 @media screen and (max-width: 600px) {
     .contact-content {
-        width: 50%;
+        width: 100%;
     }
 
     .contact-form {
@@ -125,7 +126,7 @@
     }
 
     .msg textarea {
-        height: 80px;
+        height: 200px;
     }
 
     .input-fields,
