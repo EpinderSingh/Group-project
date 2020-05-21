@@ -46,13 +46,26 @@ namespace CoWork454.Controllers
         protected IActionResult AdminLogin()
         {
             var userId = GetEncryptedGenericCookie("USER_ID");
-            if (userId != null)
+            var isAdmin = _context.Users.Find(Convert.ToInt32(userId)).IsAdmin;
+            if (userId != null && isAdmin)
             {
                 return View("../Admin/Index");
             }
 
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("Login", "User");
+        }
+
+        protected IActionResult MemberLogin()
+        {
+            var userId = GetEncryptedGenericCookie("USER_ID");
+            if (userId != null)
+            {
+                return View("../User/Index");
+            }
+
+            return RedirectToAction("Login", "User");
         }
     }
+
         
 }

@@ -1,26 +1,54 @@
-﻿<section class="login-section">
+﻿@{
+    ViewData["Title"] = "CoWork454";
+    var user = (User)ViewData["user"];
+    var bookings = (List<ResourceBooking>)ViewData["resourceBookings"];
+}
 
-    <div id="login" class="login-modal">
+<h1 class="img-h1">
+    Welcome @user.FirstName
+</h1>
+<div class="news-post">
 
-        <form class="login-modal-content animate" action="/User/" method="POST">
-            >
-            <div class="imgcontainer">
-                <img src="~/images/CoWork454 Logo (white-background.png" alt="Avatar" class="avatar">
-            </div>
+    <div class="post nchild">
+        <img src="@user.UserImagePath" />
+        <h3>@user.FirstName @user.LastName</h3>
+        <p>@user.EmailAddress</p>
+        <p>Membership type: Premium</p>
 
-            <div class="container">
-                <div class="validation-summary">
-                    @Html.ValidationSummary()
-                </div>
-                <label class="login-font" for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="EmailAddress" required>
-
-                <label class="login-font" for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="Password" required>
-
-                <button class="login-btn" type="submit">Login</button>
-
-            </div>
-        </form>
+        <a class="news__btn" href="/resources">Make a room booking</a>
+        <a class="news__btn" href="/resources">Check out our news</a>
     </div>
-</section>
+    </div>
+
+    @{if (bookings.count == 0) {
+        <h2>No bookings to display</h2>
+    } else {
+        forEach(booking in bookings)    {
+
+<div class="news-post">
+
+    <div class="post nchild">
+        <img src="@booking.resource.UserImagePath" />
+        <h3>@user.FirstName @user.LastName</h3>
+        <p>@user.EmailAddress</p>
+        <p>Membership type: Premium</p>
+
+        <a class="news__btn" href="/resources">Make a room booking</a>
+        <a class="news__btn" href="/resources">Check out our news</a>
+    </div>
+</div>
+        <form class="post nchild" method="POST" action="/booking/delete">
+            <label class="description" for="ResourceBookingStart">Booking Start</label>
+            <input name="ResourceBookingStart" type="datetime" />
+            <label class="description" for="ResourceBookingEnd">Booking End</label>
+            <input name="ResourceBookingEnd" type="datetime" />
+            <input type="hidden" id="id" name="id" />
+            <input type="hidden" id="resourceId" name="resourceId" value="@booking.Id" />
+            <button class="news__btn" type="submit" id="book_btn">Book</button>
+        </form>
+        }
+    }
+    }
+
+
+

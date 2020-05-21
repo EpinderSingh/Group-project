@@ -23,6 +23,15 @@ namespace CoWork454.Controllers
         // /User/
         public IActionResult Index()
         {
+            var userId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
+            ViewData["user"] = _context.Users.Find(userId);
+            ViewData["resourceBookings"] = _context.ResourceBookings.Where(b => b.UserId == userId).Where(b => b.ResourceBookingEnd >= DateTimeOffset.Now).ToList();
+
+            return MemberLogin();
+        }
+
+        public IActionResult Login()
+        {
             return View();
         }
 
@@ -51,8 +60,12 @@ namespace CoWork454.Controllers
             // if it matches, set a cookie with the userId
             SetEncryptedGenericCookie("USER_ID", existingUser.Id.ToString());
 
-            // redirect to Home
-            return RedirectToAction("Index", "Admin");
+            if (existingUser.IsAdmin)
+            {
+                return RedirectToAction("Index", "Admin");
+            } else { 
+             return RedirectToAction("Index", "User");
+            }
         }
 
         // Register read view
