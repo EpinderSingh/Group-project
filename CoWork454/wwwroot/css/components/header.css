@@ -30,14 +30,15 @@
 }
 
 .header .nav-links li {
-        list-style: none;
-    }
+    list-style: none;
+}
 
 .header .nav-links li a {
     font-size: 2rem;
+    padding: 2rem;
 }
 .header .hover-border {
-    color: rgb(209, 203, 203);
+    color: white;
     text-decoration: none;
     letter-spacing: 0.3rem;
     font-weight: bold;
@@ -47,23 +48,21 @@
 }
 
 .header .hover-border:hover {
-        color: #1fb5c0;
-        transition: all 0.6s ease;
-    }
+    color: #c1212e;
+    transition: all 0.6s ease;
+}
 
 .header .hover-border::after {
-        content: '';
-        width: 0%;
-        height: 2px;
-        background: #7f7fd5; /* fallback for old browsers */
-        background: -webkit-linear-gradient( to right, #91eae4, #86a8e7, #7f7fd5 ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient( to right, #91eae4, #86a8e7, #7f7fd5 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        position: absolute;
-        bottom: 0%;
-        left: 50%;
-        border-radius: 3px;
-        transition: all 500ms ease;
-    }
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #c1212e; 
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    border-radius: 3px;
+    transition: all 500ms ease;
+}
 
 .header .hover-border:hover::after {
     left: 0%;
@@ -92,7 +91,7 @@
         position: absolute;
         right: 0px;
         height: 90vh;
-        top: 10vh;
+        top: 15vh;
         background-color: #c1212e;
         display: flex;
         flex-direction: column;
