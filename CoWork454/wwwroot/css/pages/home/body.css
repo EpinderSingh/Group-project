@@ -420,7 +420,7 @@
     color: white;
     text-align: center;
     padding: 4% 3%;
-    border-top: black solid;
+    border-top: black solid;margin-top: 0.3rem;
 }
 
 .news-container > h2 {
