@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "CoWork454";
+}
+@{
+    var resource = (Resource)ViewData["resource"];
+    var user = (User)ViewData["user"];
+
+}
+@{
+    <div class="post nchild">
+        <img src="@resource.ResourceImage" />
+        <h3>@resource.ResourceName</h3>
+        <p>@resource.ResourceDescription</p>
+        <p>Capacity - @resource.ResourceMaxCapacity people</p>
+        <p>VC - @resource.ResourceHasVC</p>
+    </div>
+
+    <form class="post nchild" method="POST">
+        <label class="description" for="ResourceBookingStart">Booking Start</label>
+        <input name="ResourceBookingStart" type="datetime" />
+        <label class="description" for="ResourceBookingEnd">Booking End</label>
+        <input name="ResourceBookingEnd" type="datetime" />
+        <input type="hidden" id="id" name="id" />
+        <input type="hidden" id="resourceId" name="resourceId" value="@resource.Id" />
+        <button class="news__btn" type="submit" id="book_btn">Book</button>
+    </form>
+
+}
