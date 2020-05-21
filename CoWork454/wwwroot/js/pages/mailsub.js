@@ -26,3 +26,4 @@ subscriptionForm.addEventListener('submit', (event) => {
         });
 
 });
+
