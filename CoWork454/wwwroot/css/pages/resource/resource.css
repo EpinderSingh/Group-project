@@ -1,0 +1,27 @@
+﻿.resource.container,
+.user.container,
+.booking.container {
+    margin: 0 auto;
+}
+
+.resource h1,
+.user h1,
+.booking h1 {
+    font-size: 5rem;
+    padding: 2% 5%;
+}
+
+.resource button,
+.user button,
+.booking button {
+    padding: 1rem 5rem;
+    background: #10143F;
+    border-radius: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: auto;
+    width: 60%;
+}

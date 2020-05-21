@@ -3,52 +3,59 @@
     var user = (User)ViewData["user"];
     var bookings = (List<ResourceBooking>)ViewData["resourceBookings"];
 }
+    <div class="user container">
+        <h1 class="user">
+            Welcome @user.FirstName!
+        </h1>
+        <div class="user-post">
+            <div class="post nchild">
+                <img src="@user.UserImagePath" />
+                <h3>@user.FirstName @user.LastName</h3>
+                <p>@user.EmailAddress</p>
+                <p>Membership type: Premium</p>
+                <div class="user__action">
+                    <a class="user__btn" href="/resource">Make a room booking</a>
+                    <a class="user__btn" href="/news">Check out our news</a>
+                </div>
+            </div>
+        </div>
 
-<h1 class="img-h1">
-    Welcome @user.FirstName
-</h1>
-<div class="news-post">
+        @{if (bookings.Count == 0)
+            {
+                <div class="booking post nchild">
+                    <h2>No bookings to display</h2>
+                    <div class="user__action">
+                        <a class="user__btn" href="/resource">Make a room booking</a>
+                        <a class="user__btn" href="/news">Check out our news</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                foreach (ResourceBooking booking in bookings)
+                {
 
-    <div class="post nchild">
-        <img src="@user.UserImagePath" />
-        <h3>@user.FirstName @user.LastName</h3>
-        <p>@user.EmailAddress</p>
-        <p>Membership type: Premium</p>
+                    
+                        <div class="booking post nchild">
+                            <img src="@booking.Resource.ResourceImage" />
+                            <h2>@booking.ResourceBookingStart - @booking.ResourceBookingEnd</h2>
+                            <h3>@booking.Resource.ResourceName</h3>
+                            <h3>@booking.Resource.ResourceDescription</h3>
+                            <h3>Capacity - @booking.Resource.ResourceMaxCapacity users</h3>
+                            <h3>VC - @booking.Resource.ResourceName</h3>
 
-        <a class="news__btn" href="/resources">Make a room booking</a>
-        <a class="news__btn" href="/resources">Check out our news</a>
-    </div>
-    </div>
+                            <form action="booking/delete" method="POST">
+                                <button class="user__btn" type="submit">Delete booking</button>
+                            </form>
 
-    @{if (bookings.count == 0) {
-        <h2>No bookings to display</h2>
-    } else {
-        forEach(booking in bookings)    {
+                        </div>
 
-<div class="news-post">
-
-    <div class="post nchild">
-        <img src="@booking.resource.UserImagePath" />
-        <h3>@user.FirstName @user.LastName</h3>
-        <p>@user.EmailAddress</p>
-        <p>Membership type: Premium</p>
-
-        <a class="news__btn" href="/resources">Make a room booking</a>
-        <a class="news__btn" href="/resources">Check out our news</a>
-    </div>
-</div>
-        <form class="post nchild" method="POST" action="/booking/delete">
-            <label class="description" for="ResourceBookingStart">Booking Start</label>
-            <input name="ResourceBookingStart" type="datetime" />
-            <label class="description" for="ResourceBookingEnd">Booking End</label>
-            <input name="ResourceBookingEnd" type="datetime" />
-            <input type="hidden" id="id" name="id" />
-            <input type="hidden" id="resourceId" name="resourceId" value="@booking.Id" />
-            <button class="news__btn" type="submit" id="book_btn">Book</button>
-        </form>
+                }
+            }
         }
-    }
-    }
+
+    </div>
+
 
 
 

@@ -1,6 +1,8 @@
 ﻿
 
-.news-post {
+.news-post,
+.user-post,
+.booking-post {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;

@@ -34,7 +34,7 @@ namespace CoWork454.Controllers
             {
                 ViewData["resource"] = _context.Resources.Find(id);
                 ViewData["user"] = _context.Users.Find(Convert.ToInt32(userIdCookie));
-
+                
                 return View();
 
             }
@@ -43,11 +43,30 @@ namespace CoWork454.Controllers
         [HttpPost]
         public IActionResult Index(ResourceBooking model)
         {
+            //check booking is available
+            
+            var existingBookings = _context.ResourceBookings
+                                    .Where(b => b.ResourceId == model.ResourceId)
+                                    .Where(b => b.ResourceBookingStart >= DateTimeOffset.Now)
+                                    .ToList();
+
+            if (existingBookings.Count > 0)
+            {
+                foreach (var booking in existingBookings)
+                {   
+                    if (booking.ResourceBookingStart <= booking.ResourceBookingEnd && booking.ResourceBookingStart <= booking.ResourceBookingEnd)
+                    {
+                        ModelState.AddModelError("Duplicate Booking", "Sorry - already booked at this time");
+                        return View();
+                    }
+                }
+            }
+
             model.UserId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
             model.ResourceBookingTimeCreated = DateTimeOffset.Now;
             _context.ResourceBookings.Add(model);
             _context.SaveChanges();
-            return View();
+            return RedirectToAction("Index", "User");
 
         }
 

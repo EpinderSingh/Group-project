@@ -4,25 +4,32 @@
 @{
     var resource = (Resource)ViewData["resource"];
     var user = (User)ViewData["user"];
-
+    
 }
 @{
-    <div class="post nchild">
-        <img src="@resource.ResourceImage" />
-        <h3>@resource.ResourceName</h3>
-        <p>@resource.ResourceDescription</p>
-        <p>Capacity - @resource.ResourceMaxCapacity people</p>
-        <p>VC - @resource.ResourceHasVC</p>
+    <div class="booking container">
+        <h1>Make booking</h1>
+        <div class="post nchild">
+            <img src="@resource.ResourceImage" />
+            <h3>@resource.ResourceName</h3>
+            <p>@resource.ResourceDescription</p>
+            <p>Capacity - @resource.ResourceMaxCapacity people</p>
+            <p>VC - @resource.ResourceHasVC</p>
+        </div>
+
+        <div class="post nchild">
+            <form class="post nchild" method="POST">
+                <label class="description" for="ResourceBookingStart" value="@DateTimeOffset.Now">Booking Start</label>
+                <input name="ResourceBookingStart" type="datetime-local" />
+                <label class="description" for="ResourceBookingEnd" value="@DateTimeOffset.Now.AddHours(1)">Booking End</label>
+                <input name="ResourceBookingEnd" type="datetime-local" />
+                <input type="hidden" id="id" name="id" />
+                <input type="hidden" id="resourceId" name="resourceId" value="@resource.Id" />
+                <button type="submit" id="book_btn">Book</button>
+            </form>
+            <div class="validation-summary">
+                @Html.ValidationSummary()
+            </div>
+        </div>
     </div>
-
-    <form class="post nchild" method="POST">
-        <label class="description" for="ResourceBookingStart">Booking Start</label>
-        <input name="ResourceBookingStart" type="datetime" />
-        <label class="description" for="ResourceBookingEnd">Booking End</label>
-        <input name="ResourceBookingEnd" type="datetime" />
-        <input type="hidden" id="id" name="id" />
-        <input type="hidden" id="resourceId" name="resourceId" value="@resource.Id" />
-        <button class="news__btn" type="submit" id="book_btn">Book</button>
-    </form>
-
 }

@@ -4,27 +4,29 @@
 @{
     var resources = (List<Resource>)ViewData["resources"];
 }
+    <div class="resource container">
+        <h1>
+            Resources available for booking
+        </h1>
+        <div class="news-post">
 
-    <h1 class="img-h1">
-        Resources
-    </h1>
-<div class="news-post">
-
-    @{ for (var i = 0; i < resources.Count; i++)
-        {
-        <div class="post nchild">
-            <img src="@resources[i].ResourceImage" />
-            <h3>@resources[i].ResourceName</h3>
-            <p>@resources[i].ResourceDescription</p>
-            <p>Capacity - @resources[i].ResourceMaxCapacity people</p>
-            <p>VC - @resources[i].ResourceHasVC</p>
-            <form action="/booking" >
-                <input type="hidden" id="id" name="id" value="@resources[i].Id"/>
-                <button class="about-button" type="submit" id="book_btn">Book</button>
-            </form>
-        </div>   
-        }
-    }
-</div>
+            @{ for (var i = 0; i < resources.Count; i++)
+                {
+                    var vc = (resources[i].ResourceHasVC) ? "Yes" : "No";
+                    <div class="post nchild">
+                        <img src="@resources[i].ResourceImage" />
+                        <h3>@resources[i].ResourceName</h3>
+                        <p>@resources[i].ResourceDescription</p>
+                        <p>Capacity - @resources[i].ResourceMaxCapacity people</p>
+                        <p>Video Conferencing - @vc</p>
+                        <form action="/booking">
+                            <input type="hidden" id="id" name="id" value="@resources[i].Id" />
+                            <button type="submit" id="book_btn">Book</button>
+                        </form>
+                    </div>
+                }
+            }
+        </div>
+    </div>
 
 

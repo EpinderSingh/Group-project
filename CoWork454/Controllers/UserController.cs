@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using CoWork454.Models;
@@ -25,7 +26,12 @@ namespace CoWork454.Controllers
         {
             var userId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
             ViewData["user"] = _context.Users.Find(userId);
-            ViewData["resourceBookings"] = _context.ResourceBookings.Where(b => b.UserId == userId).Where(b => b.ResourceBookingEnd >= DateTimeOffset.Now).ToList();
+            ViewData["resourceBookings"] = _context
+                                            .ResourceBookings
+                                            .Where(b => b.UserId == userId)
+                                            .Where(b => b.ResourceBookingEnd >= DateTimeOffset.Now)
+                                            .Include(b => b.Resource)
+                                            .ToList();
 
             return MemberLogin();
         }
@@ -98,6 +104,7 @@ namespace CoWork454.Controllers
             user.LastName = model.LastName;
             user.EmailAddress = model.EmailAddress;
             user.PasswordHash = passwordHash;
+            user.UserImagePath = "https://cowork454.blob.core.windows.net/cowork454container/favicon.png";
 
 
             try
