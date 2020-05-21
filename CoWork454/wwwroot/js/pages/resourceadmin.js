@@ -47,7 +47,7 @@ const onSelect = (evt) => {
 const onSave = (evt) => {
     evt.preventDefault();
     let updatePhoto = (!!resourcePhotoElem.files[0]) ? resourcePhotoElem.files[0] : resourcePhotoDisplayElem.src;
-    (!!idElem.value) ? updateExisting(parseInt(idElem.value), resourceNameElem.value, resourceDescriptionElem.value, updatePhoto, resourceMaxCapacityElem.value, resourceHasVCElem.checked) : addNew(resourceNameElem.value, resourceDescriptionElem.value, resourcePhotoElem.files[0], resourceMaxCapacityElem.value, resourceHasVCElem.checked);
+    (!!idElem.value) ? updateExisting(parseInt(idElem.value), resourceNameElem.value, resourceDescriptionElem.value, updatePhoto, resourceMaxCapacityElem.value, resourceHasVCElem.checked): addNew(resourceNameElem.value, resourceDescriptionElem.value, resourcePhotoElem.files[0], resourceMaxCapacityElem.value, resourceHasVCElem.checked);
 }
 
 const onClear = (evt) => {
@@ -122,7 +122,7 @@ const getDetails = (resourceId) => {
             resourceDescriptionElem.value = resource.resourceDescription;
             resourcePhotoDisplayElem.src = resource.resourceImage;
             resourceMaxCapacityElem.value = resource.resourceMaxCapacity;
-            resourceHasCVElem.checked = resource.resourceHasVC;
+            resourceHasVCElem.checked = resource.resourceHasVC;
         })
         .catch(err => { console.log(err) });
 }
@@ -192,7 +192,7 @@ const clearForm = () => {
     resourcePhotoDisplayElem.src = '';
     resourcePhotoElem.value = '';
     resourceMaxCapacityElem.value = '';
-    resourceHasCVElem.checked = false;
+    resourceHasVCElem.checked = false;
 }
 saveBtn.addEventListener('click', onSave);
 clearBtn.addEventListener('click', onClear);
