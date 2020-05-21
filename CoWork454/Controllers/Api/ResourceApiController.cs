@@ -68,7 +68,38 @@ namespace CoWork454.Controllers.Api
         [HttpPut("{id}")]
         public void Put(int id, IFormFile file, [FromForm] Resource model)
         {
-            _context.Update(model);
+            var existingResource = _context.Resources.Find(id);
+            string filePath = null;
+
+            if (file != null)
+            {
+                using (var stream = file.OpenReadStream())
+                {
+                    var connectionString = _configuration.GetConnectionString("StorageConnection");
+                    filePath = AzureStorage.AddUpdateFile(file.FileName, stream, connectionString, "CoWork454Container");
+                }
+
+            }
+            //retain existing photo if none uploaded
+            else if (file == null && existingResource.ResourceImage != null)
+            {
+                filePath = existingResource.ResourceImage;
+            }
+
+            //if nothing use default image
+            else
+            {
+                filePath = "/images/resource_default.jpg";
+            }
+
+            existingResource.ResourceName = model.ResourceName;
+            existingResource.ResourceDescription = model.ResourceDescription;
+            existingResource.ResourceMaxCapacity = model.ResourceMaxCapacity;
+            existingResource.ResourceHasVC = model.ResourceHasVC;
+            existingResource.ResourceImage = filePath;
+            
+            _context.Resources.Update(existingResource);
+            
             _context.SaveChanges();
         }
 

@@ -116,7 +116,7 @@ const getAll = () => {
 const getDetails = (resourceId) => {
     fetch(`/api/ResourceApi/${resourceId}`)
         .then(res => res.json())
-        .then(newsPost => {
+        .then(resource => {
             idElem.value = resource.id;
             resourceNameElem.value = resource.resourceName;
             resourceDescriptionElem.value = resource.resourceDescription;
@@ -141,7 +141,7 @@ const addNew = (resourceName, resourceDescription, resourceImage, resourceMaxCap
             'Accept': 'application/json',
         },
     };
-    fetch('/api/NewsPostApi', fetchOptions)
+    fetch('/api/ResourceApi', fetchOptions)
         .then(res => {
             clearForm();
             getAll();
