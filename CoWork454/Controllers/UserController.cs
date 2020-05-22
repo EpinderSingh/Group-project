@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using CoWork454.Models;
@@ -22,6 +23,21 @@ namespace CoWork454.Controllers
         // Login read view
         // /User/
         public IActionResult Index()
+        {
+            var userId = Convert.ToInt32(GetEncryptedGenericCookie("USER_ID"));
+            ViewData["user"] = _context.Users.Find(userId);
+            ViewData["resourceBookings"] = _context
+                                            .ResourceBookings
+                                            .Include(b => b.Resource)
+                                            .Where(b => b.Resource.Id == b.ResourceId)
+                                            .Where(b => b.UserId == userId)
+                                            .Where(b => b.ResourceBookingEnd >= DateTimeOffset.Now)
+                                            .ToList();
+
+            return MemberLogin();
+        }
+
+        public IActionResult Login()
         {
             return View();
         }
@@ -51,8 +67,12 @@ namespace CoWork454.Controllers
             // if it matches, set a cookie with the userId
             SetEncryptedGenericCookie("USER_ID", existingUser.Id.ToString());
 
-            // redirect to Home
-            return RedirectToAction("Index", "Admin");
+            if (existingUser.IsAdmin)
+            {
+                return RedirectToAction("Index", "Admin");
+            } else { 
+             return RedirectToAction("Index", "User");
+            }
         }
 
         // Register read view
@@ -85,6 +105,7 @@ namespace CoWork454.Controllers
             user.LastName = model.LastName;
             user.EmailAddress = model.EmailAddress;
             user.PasswordHash = passwordHash;
+            user.UserImagePath = "https://cowork454.blob.core.windows.net/cowork454container/favicon.png";
 
 
             try

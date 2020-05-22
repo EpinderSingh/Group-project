@@ -20,6 +20,8 @@
     <Folder Include="wwwroot\css\pages\News\" />
     <Folder Include="Views\Resource\" />
     <Folder Include="Views\Booking\" />
+    <Folder Include="wwwroot\css\pages\user\" />
+    <Folder Include="wwwroot\css\pages\resource\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
