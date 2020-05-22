@@ -14,35 +14,33 @@
                 <p>@user.EmailAddress</p>
                 <p>Membership type: Premium</p>
                 <div class="user__action">
-                    <a class="user__btn" href="/resource">Make a room booking</a>
-                    <a class="user__btn" href="/news">Check out our news</a>
+                    <button class="user__btn" href="/resource">Room booking</button>
+                    <button class="user__btn" href="/news">Read News</button>
                 </div>
             </div>
-        </div>
 
-        @{if (bookings.Count == 0)
-            {
-                <div class="booking post nchild">
-                    <h2>No bookings to display</h2>
-                    <div class="user__action">
-                        <a class="user__btn" href="/resource">Make a room booking</a>
-                        <a class="user__btn" href="/news">Check out our news</a>
-                    </div>
-                </div>
-            }
-            else
-            {
-                foreach (ResourceBooking booking in bookings)
+
+            @{if (bookings.Count == 0)
                 {
+                    <div class="booking post nchild">
+                        <h2>No bookings to display</h2>
+                        <div class="user__action">
+                            <button class="user__btn" href="/resource">Make a room booking</button>
+                            <button class="user__btn" href="/news">Check out our news</button>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    foreach (ResourceBooking booking in bookings)
+                    {
 
-                    
+
                         <div class="booking post nchild">
-                            <img src="@booking.Resource.ResourceImage" />
-                            <h2>@booking.ResourceBookingStart - @booking.ResourceBookingEnd</h2>
-                            <h3>@booking.Resource.ResourceName</h3>
-                            <h3>@booking.Resource.ResourceDescription</h3>
-                            <h3>Capacity - @booking.Resource.ResourceMaxCapacity users</h3>
-                            <h3>VC - @booking.Resource.ResourceName</h3>
+                            <img src="~/images/resource_default.jpg" />
+                            <h3>@booking.ResourceBookingStart - @booking.ResourceBookingEnd</h3>
+                            <h3>Resource details to do</h3>
+
 
                             <form action="booking/delete" method="POST">
                                 <button class="user__btn" type="submit">Delete booking</button>
@@ -50,10 +48,11 @@
 
                         </div>
 
+                    }
                 }
             }
-        }
 
+        </div>
     </div>
 
 

@@ -28,9 +28,10 @@ namespace CoWork454.Controllers
             ViewData["user"] = _context.Users.Find(userId);
             ViewData["resourceBookings"] = _context
                                             .ResourceBookings
+                                            .Include(b => b.Resource)
+                                            .Where(b => b.Resource.Id == b.ResourceId)
                                             .Where(b => b.UserId == userId)
                                             .Where(b => b.ResourceBookingEnd >= DateTimeOffset.Now)
-                                            .Include(b => b.Resource)
                                             .ToList();
 
             return MemberLogin();
